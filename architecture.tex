@@ -5,7 +5,7 @@
 \noindent Workflow and requirements described in the previous section have been received in \emph{Metior}, a prototypal application serving as proof of concept. 
 It is strongly web based
 it runs in a modern web browser, thus maximizing accessibility, 
-it is built using React by Facebook and a MVC design pattern with \emph{unidirectional data flow}[reference redux]. By centralizing access to the application state to a single controller it ensures best maintenibility and debuggability.
+it is built using React by Facebook and a MVC design pattern with \emph{unidirectional data flow} \cite{redux}. By centralizing access to the application state to a single controller it ensures best maintenibility and debuggability.
 
 
 
@@ -65,7 +65,7 @@ Un plugin viene definito dalle seguenti proprietà:
 \item una funzione che riporta una rappresentazione 3D dell'elemento (per la vista 3D)
 \end{itemize}
 
-\subsubsection{Tassonomia dei plugin}
+\subsubsection{Tassonomia dei plugin}\label{ssec:taxonomy}
 
 I plugin possono essere organizzati in base alla loro tipologia e possibilità di posizionamento.
 
@@ -116,13 +116,24 @@ Le proprietà di un istanza di un plugin sono editabili dal pannello presente nel
 
 
 \subsection{Plugin Catalog}
-It is pivotal to provide surveyors with a rich catalog of plugins, to cover all the basic
- as well as the most advanced modeling requirements. Built-in plugins as provided out-of-the-box by the system
- built-in
- basic
- advanced
-
-
+\noindent It is pivotal to provide surveyors with a rich catalog of plugins, to cover all the basic
+ as well as the most advanced modeling requirements. Built-in plugins as provided out-of-the-box by the system along with basic and advanced ones, as reported by Table~\ref{tab:plugins-example}.
+ 
+\begin{table}[htbp]
+\small
+\centering
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}l |l|l|}
+\hline
+{\color[HTML]{000000} } & \cellcolor[HTML]{EFEFEF}{\color[HTML]{000000} \footnotesize{\bf{inside}}} & \cellcolor[HTML]{EFEFEF}{\color[HTML]{000000} \footnotesize{\bf{over / free}}} \\ \hline
+\footnotesize{\bf{linear}}         & \tt{pipe}                   & \tt{electrical-conduit}              \\ \hline
+\footnotesize{\bf{ver. area}}    & \tt{window, door}     & \tt{wall}                                   \\ \hline
+\footnotesize{\bf{hor. area}}    & \tt{light-panel}         & \tt{ground, ceils}                     \\ \hline
+\footnotesize{\bf{volume}}      & \tt{pillar}                  & \tt{staircase}                           \\ \hline
+\end{tabular}
+\caption{Plugins example according to taxonomy~\ref{ssec:taxonomy}}
+\label{tab:plugins-example}
+\end{table}
 
 \subsection{Server-side models generation}
 
