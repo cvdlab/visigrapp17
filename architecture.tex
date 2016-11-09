@@ -2,10 +2,7 @@
 \label{sec:architecture}
 
 % principles
-\noindent Workflow and requirements described in the previous section have been received in \emph{Metior}, a prototypal application serving as proof of concept.
-It is strongly web based;
-it runs in a modern web browser, thus maximizing accessibility;
-it is built using React by Facebook and a MVC design pattern with \emph{unidirectional data flow}[reference redux], by centralizing access to the application state to a single controller it ensures best maintenibility and debuggability.
+\noindent Workflow and requirements described in the previous section have been received in \emph{Metior}, a prototypal application serving as proof of concept. With the aim of maximize accessibility for surveyors, it is strongly web based and runs in modern browsers. it is built using React by Facebook and an MVC design pattern with \emph{unidirectional data flow} \cite{redux}:  it ensures the best code maintainability and debuggability by centralizing access to the application state to a single controller.
 
 \subsection{UI \& UX}
 
@@ -53,7 +50,7 @@ A plugin is described by the following properties:
 \item a construction function that returns the 3D representation of the element (in OBJ format, for the 3D view mode)
 \end{itemize}
 
-\subsubsection{Tassonomia dei plugin}
+\subsubsection{Tassonomia dei plugin}\label{ssec:taxonomy}
 
 \noindent The plugins can be organized by the \emph{occupation type} and the \emph{placement type}.
 
@@ -101,12 +98,23 @@ For example, a ``color'' property can be introduced defining a UI component comp
 
 
 \subsection{Plugin Catalog}
-It is pivotal to provide surveyors with a rich catalog of plugins, to cover all the basic
- as well as the most advanced modeling requirements. Built-in plugins as provided out-of-the-box by the system
- built-in
- basic
- advanced
+\noindent It is pivotal to provide surveyors with a rich catalog of plugins, to cover all the basic as well as the most advanced modeling requirements. Table~\ref{tab:plugins-example} reports examples of plugins arranged by the introduced taxonomy.
 
+\begin{table}[htbp]
+\small
+\centering
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}l |l|l|}
+\hline
+{\color[HTML]{000000} } & \cellcolor[HTML]{EFEFEF}{\color[HTML]{000000} \footnotesize{\bf{inside}}} & \cellcolor[HTML]{EFEFEF}{\color[HTML]{000000} \footnotesize{\bf{over / free}}} \\ \hline
+\footnotesize{\bf{linear}}      & \tt{pipe}             & \tt{electrical-conduit}  \\ \hline
+\footnotesize{\bf{ver. area}}   & \tt{window, door}     & \tt{wall}                \\ \hline
+\footnotesize{\bf{hor. area}}   & \tt{light-panel}      & \tt{ground, ceil}        \\ \hline
+\footnotesize{\bf{volume}}      & \tt{pillar}           & \tt{staircase}           \\ \hline
+\end{tabular}
+\caption{Plugins example according to taxonomy~\ref{ssec:taxonomy}}
+\label{tab:plugins-example}
+\end{table}
 
 \subsection{Server-side models generation}
 
@@ -115,7 +123,7 @@ It is pivotal to provide surveyors with a rich catalog of plugins, to cover all 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
 
-   \includegraphics[width=0.6\linewidth]{images/architecture}
+   \includegraphics[width=0.6\linewidth]{images/architecture-h}
 
    \caption{Client/Server architecture for server-side models generation}
    \label{fig:c-s-arch}
