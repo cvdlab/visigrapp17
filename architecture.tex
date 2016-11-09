@@ -13,105 +13,93 @@ The web application appears as a simplified CAD.
 
    \includegraphics[width=1\linewidth]{images/ui}
 
-   \caption{\emph{Meteor} user interface}
+   \caption{\emph{Metior} user interface}
    \label{fig:ui}
 \end{figure}
 
-L'interfaccia utente si compone di 3 aree principali:
-- toolbar
-- canvas
-- sidebar
+\noindent The UI is based on three main areas: \empb{toolbar}, \emph{canvas} and \emph{sidebar}.
 
-Dalla toolbar è possibile richiamare le funzionalità per:
-- gestire il ciclo di vita di un progetto (nuovo, carica, salva),
-- editare il progetto (aprire il catalogo di elementi architetturali da disegnare)
-- cambiare la modalità di visualizzazione (2D \& 3D)
-- cambiare le modalità di interazione (pan \& zoom)
+\noindent The \emph{toolbar} allow to handle the project life cycle (new, save \& load); to edit the project (showing the plugins catalog, described below); to change the view mode (2D \& 3D); to change the interaction mode (pan \& zoom).
 
-La canvas presenta il progetto nelle differenti modalità di visualizzazione
-- modalità 2D, vista dall'alto, in cui è possibile inserire/selezionare elementi
-- modalità 3D, vista esterna prospettica o ortografica, in cui e possibile selezionare elementi
-- modalità 3D, vista in prima person, in cui è possibile navigare il progetto
+\noindent The canvas shows the project in different view modes:
+in the 2D view mode, the projectview from top, it's possible to insert/select elements;
+in the 3D view mode, in trackball or first-person mode, using perspective or orthographic camera, it's possible to navigate the project and select elements.
 
-La sidebar presenta le proprietà specifiche dell'elemento correntemente selezionato.
-Attraverso tale pannello è possibile visualizzare la descrizione dell'elemento,
-modificare le proprietà dell'elemento, aggiungere/modificare/rimuovere metadati.
+\noindent The sidebar shows the properties of the currently selected element.
+In the properties panel it's possible to view the description of the element, to modify any property, or to add/remove metadata.
 
 \subsection{Plugin-architecture}
 
 \noindent The application has been designed to provide a small set of core interaction functionalities and to encapsulate the generation logic for architectural components (from the very basic to the most articulated) into specific plugins.
 
-Un plugin è un componente software che può essere integrato nel sistema e che ne estende le capacità.
-In Metior, un plugin rappresenta un elemento architetturale che estende la capacità di progettazione di un edificio.
-Tecnicamente, un plugin rappresenta un prototipo (in programmazione orientata agli oggetti, una "classe") di un elemento architettonico, che può essere inserito ("instanziato") all'interno di un progetto.
+\noindent A plugin is a software component that can be seamlessy integrated in the system in order to extends its capabilities.
+In \emph{Metior}, a plugin represents an architectural element that extends the Building Information Model design.
+Technically, a plugin represents a \emph{prototype} (namely a ``class'' in OOP) of a construction element that can be inserted (``instantiated'') in the canvas.
 
 \subsubsection{Definizione di un plugin}
 
-Un plugin viene definito dalle seguenti proprietà:
+A plugin is described by the following properties:
 \begin{itemize}
-\item un nome univoco
-\item una descrizione testuale
-\item metadati
-\item la tipologia del plugin, che può essere "linear", "area" o "volume"
-\item le possibilità di posizionamento del plugin, che può essere "inside" o "over"
-\item le proprietà specifiche dell'oggetto descritto dal plugin
-\item una funzione che riporta una rappresentazione 2D dell'elemento (per la vista 2D)
-\item una funzione che riporta una rappresentazione 3D dell'elemento (per la vista 3D)
+\item a unique name
+\item a description
+\item a set of metadata
+\item the \emph{occupation type}, that can be one of \emph{linear}, \emph{area} or \emph{volume}
+\item the \emph{placement type}, that can be one of \emph{inside} or \emph{over}
+\item a set of specific properties relative to the element described
+\item a construction function that returns the 2D representation of the element (in SVG format, for the 2D view mode)
+\item a construction function that returns the 3D representation of the element (in OBJ format, for the 3D view mode)
 \end{itemize}
 
 \subsubsection{Tassonomia dei plugin}\label{ssec:taxonomy}
 
-I plugin possono essere organizzati in base alla loro tipologia e possibilità di posizionamento.
+\noindent The plugins can be organized by the \emph{occupation type} and the \emph{placement type}.
 
-Gli elementi di tipo "linear" rappresentano elementi che si estendono in una dimensione (a meno di uno spessore), come ad esempio i condotti idraulici o i cavi elettrici.
+\noindent The \emph{linear} elements extend in one dimension (unless a radial thickness), like hydraulic lines or electrical cables.
 
-Gli elementi di tipo "area" rappresentano elementi che si estendono in due dimensioni (a meno di uno spessore), ovvero gli elementi di separazione.
-Questi si distinguono in "horizontal", come ad esempio i pavimenti o i solai, e "vertical", come ad esempio le pareti.
+\noindent The \emph{area} elements extend in two dimensions (unless a linear thickness), like the separation elements.
+They can be divided in \emph{horizontal area}, like floor and ceil, and \emph{vertical area}, like walls.
 
-Gli elementi di tipo "volume" rappresentano elementi che si estendono nelle tre dimensioni.
-Questi si distinguono in "fixed", ovvero che hanno dimensioni fisse, come ad esempio i componenti di arredo,
-e "scalable", ovvero che hanno dimensioni scalabili (in modo proporzionale, o non), come ad esempio i pilastri.
+\noindent The \emph{volume} elements extend in three dimensions.
+The can be \emph{fixed volume}, like the piece of furniture, and \emph{scalable volume}, that can be scaled (proportionally or not), like pillars and staircases.
 
-Ciascun tipo determina una modalità di instanziazione ed interazine differente, ovvero una modalità di inserimento e di modifica dell'istanza nella canvas.
-Nello specifico, nella modalità 2D,
-gli elementi di tipo "linear" sono inseriti disegnando drag\&drop linee,
-gli elementi di tipo "area" sono inseriti disegnado drag\&drop il bounding-box dell'elemento,
-gli elementi di tipo "volume" sono inseriti specificando point\&click la posizione dell'elemento,
-e variando le sue dimensioni allargando drag\&drop il bounding-box dell'elemento.
+\noindent The \emph{occupation type} determines a different way to instantiate and to insert the element in the canvas.
+In particular, in 2D mode, the \emph{linear} elements are inserted drawing lines by drag\&drop;
+the \emph{area} elements are inserted drawing the bounding-box of the element by drag\&drop;
+the \emph{volume} elements are inserted picking the position of the element by point\&click,
+and varying their dimensions modifying the bounding-box by drag\&drop.
 
-Ciascuna possibilità di posizionamento di un plugin determina la fattibilità di inserimento dell'istanza del plugin all'interno della canvas.
+\noindent The \emph{placement type} determines if the element can be inserted in the canvas in a specific point occupied or not by other elements.
 
-Gli elementi di tipo "inside" possono essere inseriti solo all'interno di altri elementi di tipo "linear", "area" o "volume".
-Ad esempio, una finestra è un elemento di tipo "volume inside vertical area",
-un condotto idraulico può essere un elemento di tipo "linear inside horizontal area".
+\noindent The \emph{inside} elements can be inserted in the canvas only inside other elements (that can be \emph{linear}, \emph{area} or \emph{volume}); e.g., a ``window'' is a ``volume inside vertical area'' element,
+while an ``hydraulic line'' is a ``linear inside horizontal area'' element.
 
-Gli elementi di tipo "over" possono essere inseriti solo a fianco di altri elementi di tipo "linear", "area" o "volume".
-Ad esempio, un pilastro è un elmento di tipo "volume over horizontal area",
-un pannello elettrico è un elemento di tipo "volume over vertical area".
+\noindent The \emph{over} elements can be inserted in the canvas only over other elements (of any type);
+e.g., a ``pillar'' is a ``volume over horizontal area'' element,
+while an ``electric panel'' is a ``volume over vertical area'' element.
 
-Nella fase di progettazione, un elemento che non rispetta il vincolo definito dalla sua possibilità di posizionamento è rilevato come warning visivo (bounding-box di colore rosso) dal sistema.
+In the design phase, an element that doesn't meet the placement constraints defined by the placement type is notified by the system as a visual warning, showing its bounding-box in semi-transparent blinked red color.
 
 \subsubsection{Proprietà specifiche dei plugin}
 
-Ciascun plugin ha un insieme di proprietà specifiche dell'elemento che rappresenta.
-Ciascuna proprietà è definita da:
-- un nome
-- un tipo, che può essere "number", "text", "boolean", o "custom"
-- un valore
+\noindent Each plugin has a set of specific properties of the building elements that it represent.
+Each property is defined by:
+\begin{itemize}
+\item a name
+\item a type, such as ``number'', ``text'', ``boolean'', o ``custom''
+\item a value
+\end{itemize}
 
-Ciascun tipo di proprietà descrive e determina una modalità di inserimento del valore specifica.
-Ad esempio, un tipo "boolean" è definito da una "checkbox", un tipo "text" da una casella di testo.
-Il sistema permette di definire nuovi tipi di dato, specificando l'interfaccia di inserimento del valore.
-Ad esempio, un tipo "color" può essere definito da tre caselle numeriche che rappresentano le componenti di colore RGB,
-oppure un tipo "lunghezza" può essere definito da una casella numerica che rappresenta il valore e da un menu a tendina
-per specificare l'unità di misura.
+\noindent According to its type, each property value can be inserted in different ways.
+For example, a boolean property value is setted by a checkbox, while a textual property is setted by a text box.
+The system lets define new kind of property, defining the component of the user interface that lets insert its value.
+For example, a ``color'' property can be introduced defining a UI component composed by three text boxes (one for each RGB color  components), while a ``length'' property can be introduced defining a UI component composed by a text box for the value and a drop-down menu for the unit of measure.
 
-Le proprietà di un istanza di un plugin sono editabili dal pannello presente nella sidebar quando l'istanza è selezionata.
+\noindent The specific properties of an element can be edited in the relative panel in the sidebar, once the element is selected in the canvas.
 
 
 \subsection{Plugin Catalog}
 \noindent It is pivotal to provide surveyors with a rich catalog of plugins, to cover all the basic as well as the most advanced modeling requirements. Table~\ref{tab:plugins-example} reports examples of plugins arranged by the introduced taxonomy.
- 
+
 \begin{table}[htbp]
 \small
 \centering
@@ -119,10 +107,10 @@ Le proprietà di un istanza di un plugin sono editabili dal pannello presente nel
 >{\columncolor[HTML]{EFEFEF}}l |l|l|}
 \hline
 {\color[HTML]{000000} } & \cellcolor[HTML]{EFEFEF}{\color[HTML]{000000} \footnotesize{\bf{inside}}} & \cellcolor[HTML]{EFEFEF}{\color[HTML]{000000} \footnotesize{\bf{over / free}}} \\ \hline
-\footnotesize{\bf{linear}}         & \tt{pipe}                   & \tt{electrical-conduit}              \\ \hline
-\footnotesize{\bf{ver. area}}    & \tt{window, door}     & \tt{wall}                                   \\ \hline
-\footnotesize{\bf{hor. area}}    & \tt{light-panel}         & \tt{ground, ceil}                     \\ \hline
-\footnotesize{\bf{volume}}      & \tt{pillar}                  & \tt{staircase}                           \\ \hline
+\footnotesize{\bf{linear}}      & \tt{pipe}             & \tt{electrical-conduit}  \\ \hline
+\footnotesize{\bf{ver. area}}   & \tt{window, door}     & \tt{wall}                \\ \hline
+\footnotesize{\bf{hor. area}}   & \tt{light-panel}      & \tt{ground, ceil}        \\ \hline
+\footnotesize{\bf{volume}}      & \tt{pillar}           & \tt{staircase}           \\ \hline
 \end{tabular}
 \caption{Plugins example according to taxonomy~\ref{ssec:taxonomy}}
 \label{tab:plugins-example}
@@ -141,16 +129,6 @@ Le proprietà di un istanza di un plugin sono editabili dal pannello presente nel
    \label{fig:c-s-arch}
 \end{figure}
 
-
-
-
 \noindent
-
-
-
-
-
-
-
 
 
