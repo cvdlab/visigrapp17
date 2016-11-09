@@ -1,8 +1,0 @@
-\begin{thebibliography}{}
-
-\bibitem[red, ]{redux}
-{Redux: predictable state container for JavaScript apps}.
-\newblock \url{http://redux.js.org/}.
-\newblock Accessed: 2016-11-09.
-
-\end{thebibliography}
