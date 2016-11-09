@@ -7,36 +7,11 @@
 
 \noindent Il vantaggio della nostra metodologia consiste anche nella possibilit\`a di perseguire un approccio \textit{iterativo-incrementale}, in cui ad ogni fase di modellazione pu\`o seguire una fase di validazione dei costi parziali ottenuti. Il risultato pu\`o essere eventualmente raffinato ciclando su tale processo. Di conseguenza, il software \`e stato pensato in modo da agevolare tale metodologia incoraggiando una modellazione che preveda diverse fasi.\\
 
-\begin{figure}[!h]
-  %\vspace{-0.2cm}
-  \centering
-   {\epsfig{file = SCITEPRESS.eps, width = 5.5cm}}
-  \caption{Le fasi della progettazione iterativo-incrementale}
-  \label{fig:example1}
-\end{figure}
-
 \subsection{Fasi della progettazione}
 
 \noindent \textbf{Creazione progetto:} La prima fase della modellazione consiste nella descrizione dell'edificio, in modo da fornire indizi fondamentali per una corretta attribuzione della semantica alle componenti. In particolare sono state identificate come caratteristiche fondamentali l'\textit{et\`a presunta}, lo \textit{stile di costruzione}, lo \textit{storico delle destinazioni d'uso} e la \textit{geolocalizzazione}. L'et\`a presunta e lo stile di costruzione permettono di determinare informazioni sui materiali utilizzati; lo storico delle destinazioni d'uso permette di ricostruire le note di pericolosit\`a degli elementi da smaltire $-$ ad esempio ci possiamo aspettare elementi pericolosi in un'azienda chimica $-$ la geolocalizzazione consente infine di ricavare gli impianti di riciclaggio pi\`u vicini al sito.\\
 
 \noindent \textbf{Modellazione edificio:} Durante questa fase l'utente descrive il fabbricato utilizzando alcune tipologie di elementi. Per prima cosa viene definito lo \textit{scheletro dell'edificio} (struttura portante) , ovvero l'insieme delle travi e dei pilastri. Su di esso vengono poi costruiti i \textit{muri} (partizioni interne), su cui vengono posizionati gli \textit{infissi} (comunicazioni orizzontali). I \textit{solai} e i \textit{pavimenti} (chiusure orizzontali), invece, sono automaticamente generati a partire dalla topologia dello scheletro e dei muri. Infine, vengono collocati vari elementi come \textit{scale}, \textit{ascensori} (comunicazioni verticali) e \textit{tetti} (chiusure orizzontali) terminando quindi la fase di modellazione dell'edificio.
-
-\begin{figure}[!h]
-  %\vspace{-0.2cm}
-  \centering
-   {\epsfig{file = SCITEPRESS.eps, width = 5.5cm}}
-  \caption{Rendering 2D della planimetria}
-  \label{fig:example1}
-\end{figure}
-
-\begin{figure}[!h]
-  %\vspace{-0.2cm}
-  \centering
-   {\epsfig{file = SCITEPRESS.eps, width = 5.5cm}}
-  \caption{Rendering 3D della planimetria}
-  \label{fig:example1}
-\end{figure}
-
 
 \noindent \textbf{Attribuzione della semantica:} In questa fase agli elementi precedentemente inseriti, si attribuisce della semantica mediante \textit{annotazioni}. Vengono definiti i materiali costituenti, che possono essere uno o pi\`u ed in particolare si definisce la densit\`a. Ai fini dello smaltimento, \`e necessario attribuire uno o pi\`u codici CER (\textbf{\textit{QUI CI VA UN LINK AL PARAGRAFO DOVE SONO SPIEGATI I CER?}}) ed il grado di pericolosit\`a. Viene inoltre assegnato un attributo che fa riferimento al cronoprogramma di smaltimento delle componenti del fabbricato.\\
 
@@ -49,6 +24,13 @@
 \end{figure}
 
 \noindent \textbf{Visualizzazione in realt\`a aumentata:} Completate le fasi di modellazione e attribuzione della semantica, si pu\`o validare l'intero modello immergendolo all'interno di una \textit{point cloud} precedentemente ottenuta. (\textbf{\textit{QUI CI VA UN LINK AL PARAGRAFO DOVE SONO SPIEGATI I CER?}}). In questo modo si pu\`o verificare l'aderenza del modello alla realt\`a, ripercorrendo eventualmente i passi precedenti se il risultato non \`e ancora soddisfacente.\\
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=1\linewidth]{images/augmented}
+   \caption{A model inside a point cloud}
+   \label{fig:ui}
+\end{figure}
 
 \subsection{Risultati finali}
 
