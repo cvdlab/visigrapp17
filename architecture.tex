@@ -2,13 +2,7 @@
 \label{sec:architecture}
 
 % principles
-\noindent Workflow and requirements described in the previous section have been received in \emph{Metior}, a prototypal application serving as proof of concept. 
-It is strongly web based
-it runs in a modern web browser, thus maximizing accessibility, 
-it is built using React by Facebook and a MVC design pattern with \emph{unidirectional data flow} \cite{redux}. By centralizing access to the application state to a single controller it ensures best maintenibility and debuggability.
-
-
-
+\noindent Workflow and requirements described in the previous section have been received in \emph{Metior}, a prototypal application serving as proof of concept. With the aim of maximize accessibility for surveyors, it is strongly web based and runs in modern browsers. it is built using React by Facebook and an MVC design pattern with \emph{unidirectional data flow} \cite{redux}:  it ensures the best code maintainability and debuggability by centralizing access to the application state to a single controller.
 
 \subsection{UI \& UX}
 
@@ -116,8 +110,7 @@ Le proprietà di un istanza di un plugin sono editabili dal pannello presente nel
 
 
 \subsection{Plugin Catalog}
-\noindent It is pivotal to provide surveyors with a rich catalog of plugins, to cover all the basic
- as well as the most advanced modeling requirements. Built-in plugins as provided out-of-the-box by the system along with basic and advanced ones, as reported by Table~\ref{tab:plugins-example}.
+\noindent It is pivotal to provide surveyors with a rich catalog of plugins, to cover all the basic as well as the most advanced modeling requirements. Table~\ref{tab:plugins-example} reports examples of plugins arranged by the introduced taxonomy.
  
 \begin{table}[htbp]
 \small
@@ -128,7 +121,7 @@ Le proprietà di un istanza di un plugin sono editabili dal pannello presente nel
 {\color[HTML]{000000} } & \cellcolor[HTML]{EFEFEF}{\color[HTML]{000000} \footnotesize{\bf{inside}}} & \cellcolor[HTML]{EFEFEF}{\color[HTML]{000000} \footnotesize{\bf{over / free}}} \\ \hline
 \footnotesize{\bf{linear}}         & \tt{pipe}                   & \tt{electrical-conduit}              \\ \hline
 \footnotesize{\bf{ver. area}}    & \tt{window, door}     & \tt{wall}                                   \\ \hline
-\footnotesize{\bf{hor. area}}    & \tt{light-panel}         & \tt{ground, ceils}                     \\ \hline
+\footnotesize{\bf{hor. area}}    & \tt{light-panel}         & \tt{ground, ceil}                     \\ \hline
 \footnotesize{\bf{volume}}      & \tt{pillar}                  & \tt{staircase}                           \\ \hline
 \end{tabular}
 \caption{Plugins example according to taxonomy~\ref{ssec:taxonomy}}
