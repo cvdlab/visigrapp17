@@ -5,3 +5,6 @@
 *.synctex.gz
 *.bbl
 *.bbg
+*.tex.backup
+*.bib~
+*.blg
