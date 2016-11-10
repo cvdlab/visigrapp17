@@ -5,45 +5,47 @@ The style file: apalike.bst
 Database file #1: visigrapp.bib
 Warning--to sort, need author or key in redux
 Warning--empty year in redux
-You've used 1 entry,
+Warning--empty year in SMARTWaste
+Warning--empty publisher in SMARTWaste
+You've used 2 entries,
             1935 wiz_defined-function locations,
-            475 strings with 3790 characters,
-and the built_in function-call counts, 223 in all, are:
-= -- 24
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 13
-:= -- 39
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 5
-chr.to.int$ -- 1
-cite$ -- 4
-duplicate$ -- 10
-empty$ -- 19
-format.name$ -- 0
-if$ -- 43
+            481 strings with 4035 characters,
+and the built_in function-call counts, 537 in all, are:
+= -- 53
+> -- 7
+< -- 1
++ -- 2
+- -- 2
+* -- 33
+:= -- 93
+add.period$ -- 6
+call.type$ -- 2
+change.case$ -- 11
+chr.to.int$ -- 2
+cite$ -- 7
+duplicate$ -- 28
+empty$ -- 50
+format.name$ -- 3
+if$ -- 108
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 8
-num.names$ -- 0
-pop$ -- 5
+missing$ -- 1
+newline$ -- 13
+num.names$ -- 3
+pop$ -- 15
 preamble$ -- 1
-purify$ -- 5
+purify$ -- 11
 quote$ -- 0
-skip$ -- 7
+skip$ -- 15
 stack$ -- 0
-substring$ -- 13
-swap$ -- 0
+substring$ -- 25
+swap$ -- 1
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 6
-warning$ -- 2
-while$ -- 0
+type$ -- 12
+warning$ -- 4
+while$ -- 2
 width$ -- 0
-write$ -- 13
-(There were 2 warnings)
+write$ -- 25
+(There were 4 warnings)

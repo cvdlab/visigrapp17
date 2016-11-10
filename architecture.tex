@@ -2,11 +2,11 @@
 \label{sec:architecture}
 
 % principles
-\noindent Workflow and requirements described in the previous section have been received in \emph{Metior}, a prototypal application serving as proof of concept. With the aim of maximize accessibility for surveyors, it is strongly web based and runs in modern browsers. it is built using React by Facebook and an MVC design pattern with \emph{unidirectional data flow} \cite{redux}:  it ensures the best code maintainability and debuggability by centralizing access to the application state to a single controller.
+\noindent Workflow and requirements described in the previous section have been received in \emph{Metior}, a prototypal application serving as proof of concept. With the aim of maximize accessibility for surveyors, it is strongly web based and runs in all modern browsers. It is built using React by Facebook and an MVC design pattern with \emph{unidirectional data flow} \cite{redux}:  it ensures the best code maintainability and debuggability by centralizing access to the application state to a single controller.
 
 \subsection{UI \& UX}
 
-The web application appears as a simplified CAD.
+The web application presents itself as a simplified CAD,  the UI comprises three main areas of interaction: \emph{toolbar}, \emph{canvas} and \emph{sidebar}, as shown by Figure~\ref{fig:ui}.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -17,85 +17,63 @@ The web application appears as a simplified CAD.
    \label{fig:ui}
 \end{figure}
 
-\noindent The UI is based on three main areas: \emph{toolbar}, \emph{canvas} and \emph{sidebar}.
+\noindent From the \emph{toolbar} the user can access functionalities related to: 1) project life cycle ({\tt new}, {\tt save}, {\tt load}); 2) project editing  ({\tt  show-catalog}); 3) view/interaction mode switching ({\tt 2D}, {\tt  3D}); interaction mode changing ({\tt  selecting}, {\tt pan}, {\tt zoom}).
 
-\noindent The \emph{toolbar} allow to handle the project life cycle (new, save \& load); to edit the project (showing the plugins catalog, described below); to change the view mode (2D \& 3D); to change the interaction mode (pan \& zoom).
+\noindent The \emph{canvas} is the area in which the user can interact with actual model data. It supports two different view and interaction modes: 1) in~\emph{2D-mode} model is displayed as a 2D projection from the top, interaction consist of elements insertion, selection and editing (according to specific plugin interaction prototype, see~\ref{ssec:taxonomy}); 2) in~\emph{3D-mode} 3D model can be inspected and navigated respectively via trackball or first-person interaction style, while object picking allows for element selection.
 
-\noindent The canvas shows the project in different view modes:
-in the 2D view mode, the projectview from top, it's possible to insert/select elements;
-in the 3D view mode, in trackball or first-person mode, using perspective or orthographic camera, it's possible to navigate the project and select elements.
-
-\noindent The sidebar shows the properties of the currently selected element.
-In the properties panel it's possible to view the description of the element, to modify any property, or to add/remove metadata.
+\noindent The \emph{sidebar} shows properties of the currently selected element.
+In the properties panel it's possible to view the description of the element, to add/remove metadata and to modify any property. The latter is the interaction that allows the user to associate semantic to each part of the model.
 
 \subsection{Plugin-architecture}
 
 \noindent The application has been designed to provide a small set of core interaction functionalities and to encapsulate the generation logic for architectural components (from the very basic to the most articulated) into specific plugins.
 
-\noindent A plugin is a software component that can be seamlessy integrated in the system in order to extends its capabilities.
+\noindent A plugin is a software component that can be seamlessly integrated into the system in order to extends its capabilities.
 In \emph{Metior}, a plugin represents an architectural element that extends the Building Information Model design.
-Technically, a plugin represents a \emph{prototype} (namely a ``class'' in OOP) of a construction element that can be inserted (``instantiated'') in the canvas.
+Technically, a plugin represents a \emph{prototype} (namely a ``class'' in OOP) of a construction element that can be inserted (``instantiated'') into the \emph{canvas}, thus defining a new element, i.e. a new component of the model.
 
-\subsubsection{Definizione di un plugin}
+\subsubsection{Plugin definition}
 
-A plugin is described by the following properties:
-\begin{itemize}
-\item a unique name
-\item a description
-\item a set of metadata
-\item the \emph{occupation type}, that can be one of \emph{linear}, \emph{area} or \emph{volume}
-\item the \emph{placement type}, that can be one of \emph{inside} or \emph{over}
-\item a set of specific properties relative to the element described
-\item a construction function that returns the 2D representation of the element (in SVG format, for the 2D view mode)
-\item a construction function that returns the 3D representation of the element (in OBJ format, for the 3D view mode)
-\end{itemize}
+A plugin is described by the following eight properties: 1) a unique name; 2) a description; 3) a set of metadata; 4) the \emph{occupation type} (one among \emph{linear}, \emph{area} or \emph{volume}); 5) the \emph{placement type} (\emph{inside} or \emph{over}); 6) a set of specific properties mapping the semantic to associate to the plugin; 7) a construction function that returns the 2D representation of the element (in SVG format, to be used in the \emph{2D-mode}); 8) a construction function that returns the 3D representation of the element (in OBJ format, to be used in the \emph{3D-mode})
 
-\subsubsection{Tassonomia dei plugin}\label{ssec:taxonomy}
+\subsubsection{Plugins taxonomy}\label{ssec:taxonomy}
 
-\noindent The plugins can be organized by the \emph{occupation type} and the \emph{placement type}.
+\noindent The plugins can be organized according to the \emph{occupation type} and the \emph{placement type}. 
 
-\noindent The \emph{linear} elements extend in one dimension (unless a radial thickness), like hydraulic lines or electrical cables.
+\noindent In the \emph{occupation type} three different kind of plugins can be identified: \emph{linear}, \emph{area} or \emph{volume} plugins.
 
-\noindent The \emph{area} elements extend in two dimensions (unless a linear thickness), like the separation elements.
-They can be divided in \emph{horizontal area}, like floor and ceil, and \emph{vertical area}, like walls.
+\noindent The \emph{linear} ones extend in one dimension (unless a radial thickness) (e.g. hydraulic lines, electrical cables). The \emph{area} plugins extend in two dimensions (unless a linear thickness), (e.g. separation elements). They can be divided into \emph{horizontal area} (e.g. floor and ceil), and \emph{vertical area}, (e.g. walls). The \emph{volume} plugins extend in three dimensions. They can be \emph{fixed volume}, (e.g. a piece of furniture) and \emph{scalable volume}, that can be scaled (proportionally or not), (eg. pillars, staircases).
 
-\noindent The \emph{volume} elements extend in three dimensions.
-The can be \emph{fixed volume}, like the piece of furniture, and \emph{scalable volume}, that can be scaled (proportionally or not), like pillars and staircases.
+\noindent The \emph{occupation type} determines a different way to instantiate and to insert the plugins into the canvas.
+In particular, in \emph{2D-mode}, \emph{linear} plugins are inserted drawing lines by mean of a drag\&drop interaction;
+the \emph{area} plugins are inserted drawing the bounding-box of the element by mean of a drag\&drop interaction;
+the \emph{volume} plugins are inserted picking the position of the element by mean of a point\&click interaction,
+and adjusting their dimensions modifying the bounding-box by drag\&drop.
 
-\noindent The \emph{occupation type} determines a different way to instantiate and to insert the element in the canvas.
-In particular, in 2D mode, the \emph{linear} elements are inserted drawing lines by drag\&drop;
-the \emph{area} elements are inserted drawing the bounding-box of the element by drag\&drop;
-the \emph{volume} elements are inserted picking the position of the element by point\&click,
-and varying their dimensions modifying the bounding-box by drag\&drop.
+\noindent The \emph{placement type} determines if the element can be inserted into the canvas in a specific point occupied or not by other elements.
 
-\noindent The \emph{placement type} determines if the element can be inserted in the canvas in a specific point occupied or not by other elements.
+\noindent The \emph{placement type} determines the relationship between a new instance of a plugin and instances of other plugins previously added to the model. The relationship can be of two kind: \emph{inside} or \emph{over}.
 
-\noindent The \emph{inside} elements can be inserted in the canvas only inside other elements (that can be \emph{linear}, \emph{area} or \emph{volume}); e.g., a ``window'' is a ``volume inside vertical area'' element,
+\noindent Plugins belonging to the \emph{inside} category can be added only inside other element (that can be \emph{linear}, \emph{area} or \emph{volume}); e.g., a ``window'' is a ``volume inside vertical area'' element,
 while an ``hydraulic line'' is a ``linear inside horizontal area'' element.
 
-\noindent The \emph{over} elements can be inserted in the canvas only over other elements (of any type);
+\noindent Plugins of the \emph{over} category can be added only over other elements (of any type);
 e.g., a ``pillar'' is a ``volume over horizontal area'' element,
 while an ``electric panel'' is a ``volume over vertical area'' element.
 
-In the design phase, an element that doesn't meet the placement constraints defined by the placement type is notified by the system as a visual warning, showing its bounding-box in semi-transparent blinked red color.
+In the design phase, an element that doesn't meet the placement constraints defined by the \emph{placement type} is notified by the system as a visual warning, showing its bounding-box in semi-transparent blinked red color.
 
-\subsubsection{Proprietà specifiche dei plugin}
+\subsubsection{Plugin specific properties}
 
 \noindent Each plugin has a set of specific properties of the building elements that it represent.
-Each property is defined by:
-\begin{itemize}
-\item a name
-\item a type, such as ``number'', ``text'', ``boolean'', o ``custom''
-\item a value
-\end{itemize}
+Each property is defined by: 1) a name; 2) a type, such as ``number'', ``text'', ``boolean'', o ``custom'', 3) a value.
 
 \noindent According to its type, each property value can be inserted in different ways.
-For example, a boolean property value is setted by a checkbox, while a textual property is setted by a text box.
-The system lets define new kind of property, defining the component of the user interface that lets insert its value.
-For example, a ``color'' property can be introduced defining a UI component composed by three text boxes (one for each RGB color  components), while a ``length'' property can be introduced defining a UI component composed by a text box for the value and a drop-down menu for the unit of measure.
+For example, a boolean property value is set through a checkbox, while a textual property is set through a text box.
+The system is designed to accept custom kinds of property. To a custom property it is required to define the component of the UI that permit the user to insert its value.
+For example, a ``color'' property can be introduced defining a UI component composed by three text boxes (one for each RGB components), while a ``length'' property can be introduced defining a UI component composed by a text box for the value and a drop-down menu for the unit of measure.
 
 \noindent The specific properties of an element can be edited in the relative panel in the sidebar, once the element is selected in the canvas.
-
 
 \subsection{Plugin Catalog}
 \noindent It is pivotal to provide surveyors with a rich catalog of plugins, to cover all the basic as well as the most advanced modeling requirements. Table~\ref{tab:plugins-example} reports examples of plugins arranged by the introduced taxonomy.
@@ -129,6 +107,8 @@ For example, a ``color'' property can be introduced defining a UI component comp
    \label{fig:c-s-arch}
 \end{figure}
 
-\noindent
+\subsection{A plugin example}
+
+POTREBBE ESSERE UTILE INSERE LA DEFINIZIONE DEL PLUGIN SCALA AD ESEMPIO?
 
 
