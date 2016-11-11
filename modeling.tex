@@ -1,5 +1,5 @@
 \section{\uppercase{Solid Modeling}}
-\label{sec:introduction}
+\label{sec:modeling}
 
 %\noindent Da Alberto
 
@@ -9,7 +9,7 @@ The server-based core of the modeling architecture is based on a set of python l
 
 \subsection{Linear Algebraic Representation}
 
-LAR is a general-purpose representation scheme~\cite{} for geometric and solid modeling introduced recently. The domain of the scheme is provided by dimension-independent \emph{cellular complexes}, while its codomain is that of \emph{sparse matrices}, stored using either the CSR (Compressed Sparse Row) or the CSC (Compressed Sparse Column) \texttt{scipy}'s memory format. The LAR polyhedral domain coincides with complexes of connected $d$-cells, even non-convex and/or including any number of holes. 
+LAR is a general-purpose representation scheme~\cite{Dicarlo:2014:TNL:2543138.2543294} for geometric and solid modeling introduced recently. The domain of the scheme is provided by dimension-independent \emph{cellular complexes}, while its codomain is that of \emph{sparse matrices}, stored using either the CSR (Compressed Sparse Row) or the CSC (Compressed Sparse Column) \texttt{scipy}'s memory format. The LAR polyhedral domain coincides with complexes of connected $d$-cells, even non-convex and/or including any number of holes. 
 
 The very general shape allowed for cells makes the LAR scheme notably appropriate for solid modeling of buildings and their components. E.g., the whole frontage of a construction can be modeled as a single 3-cell of its solid model. Also, the algebraic foundation of LAR allows not only for fast queries about incidence and adjacency of cells, but also to resolve---via fast SpMV computational kernels---the boundary extraction of any 3D subset of the building model. 
 
@@ -19,10 +19,10 @@ It is worth noting that LAR provides a direct management of all subsets of cells
 
 Our computational environment is strongly oriented towards the most general parametric modeling of component shapes of buildings. This attitude is produced by two Python libraries, that provide a dimension-independent algebraic calculus with shapes (\texttt{pyplasm}) and their representation in the LAR scheme (\texttt{larlib}). 
 
-PLaSM~\cite{} (Programming Language for Solid Modeling) is a geometry-oriented extension of the Backus' FL language~\cite{}, a project developed in the nineties in the framework of the \emph{Building Technologies Project} (\emph{``PF Edilizia''}) of the Italian National Research Council. The \texttt{pyplasm} module (2006-) is the C++ porting of PLaSM to Python via SWIG wrapping, providing several operators for fast and concise functional computing of shapes.
+PLaSM~\cite{Paoluzzi:1995:GPP:212332.212349}, which stands for Programming Language for Solid Modeling~\cite{Paoluzzi2003a}, is a geometry-oriented extension of the Backus' FL language~\cite{BWWLA89}.  PLaSM is a project developed in the nineties in the framework of the \emph{Building Technologies Project} (\emph{``PF Edilizia''}) of the Italian National Research Council. The \texttt{pyplasm} module (2006-) is the C++ porting of PLaSM to Python via SWIG wrapping, providing several operators for fast and concise functional computing of shapes.
 
 On top of the Scipy/Pyplasm stack we started (2012), using literate programming methods, to build a set of software modules, named \texttt{larlib}, and using the LAR scheme. This library provides the computation of topological queries and physical properties of meshes and complexes, including integration of polynomials over the boundary of any chain of cells, using fast algebraic methods with sparse matrices. For interactive visualization it relies on the \texttt{pyplasm} viewer, based on OpenGL.
-A porting of the most engaging parts of \texttt{larlib} to \emph{Julia}, the last-generation programming language  for scientific computing~\cite{} started very recently, with the purpose of taking advantage of the great computational efficiency and parallelism of Julia in more demanding applications. 
+A porting of the most engaging parts of \texttt{larlib} to \emph{Julia}, the last-generation programming language  for scientific computing~\cite{BEKS14} started very recently, with the purpose of taking advantage of the great computational efficiency and parallelism of Julia in more demanding applications. 
 
 \subsection{Plugin server framework}
 
@@ -34,6 +34,6 @@ Of course, our list of \emph{plugin templates} embraces most of building parts t
 
 It is worth noting that, by virtue of the great expressiveness of the PLaSM operators and its functional style of programming, using first-class curried functions and dimension-independent geometry, the development of a new plugin template is very easy even for non-experienced programmers, and usually requires a tiny amount of time and code, that may range between 4-8 hours, and between 10-100 lines of Python/pyplasm code. 
 
-Two important points to remark are the following: (a) the expressive power of a geometric language is greatly empowered by  currying, i.e.~by is the technique of translating the evaluation of a function that takes multiple arguments (or a tuple of arguments) into evaluating a sequence of functions, each with a single argument; (b) Python/pyplasm are currently used even to teach (geometric) programming to K12 students~\cite{}. Most of plugin templates currently used by Metior were developed in class by the students of the graphics course taught by one of the authors. 
+Two important points to remark are the following: (a) the expressive power of a geometric language is greatly empowered by  currying, i.e.~by the technique of translating the evaluation of a function that takes multiple arguments (or a tuple of arguments) into evaluating a sequence of functions, each with a single argument; (b) Python/pyplasm are currently used even to teach (geometric) programming to K12 students~\cite{}. Most of plugin templates currently used by Metior were developed in class by the students of the graphics course taught by one of the authors. 
 
 
