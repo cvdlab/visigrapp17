@@ -1,14 +1,10 @@
-\section{\uppercase{Deconstruction App for surveyors}}
+\section{\uppercase{Deconstruction App}}
 \label{sec:application}
 
-A deconstruction oriented to the maximum reuse of materials must be supported by a workflow that guides the user towards estimating the costs of the process. The aim is the determination of the building demolition costs, depending also on transportation  and disposal of materials.
+\noindent
+A deconstruction oriented to the maximum reuse of materials must be supported by a \emph{workflow} that guides the user towards estimating the costs of the process. The aim is the determination of  \emph{building demolition costs}, depending also on transportation  and disposal of materials.
 
-We started by considering the SMARTWaste system~\cite{smartWaste}. Their approach allows to derive estimates of the quantities of materials by providing a description of the type of building and the area where it was built. With this information, the modules that provide an aggregated representation of the data of interest are automatically filled.
-
-Our approach to deconstruction conversely provides both a geometric modeling of building subsystems and components and a semantic annotation with construction materials. As a matter of fact, our national construction industry is strongly heterogeneous, so that  we need a pretty detailed modeling to obtain enough accurate information.
-One vantage point of this approach consists in its incremental iterative character, in which each modeling stage may be followed by validation of partial costs.
-
-\subsection{Workflow stages}
+\subsection{Workflow}
 
 \paragraph{Project definition} 
 
@@ -26,7 +22,7 @@ Finally, various elements such as stairs, elevators (vertical communications), f
 
 \paragraph{Semantic annotations} 
 
-At this stage the previously inserted elements annotated semantically  by means of references to database of materials, including densities. The annotation may consists of one or more materials, including percentages.
+At this stage the previously inserted elements are annotated semantically  by means of references to database of materials, including densities. The annotation may consists of one or more materials, including percentages.
 For disposal control imposed by regulations, the user should assign one / more CER codes and degrees of dangerousness (see Section~\ref{sec:CER}).
 In this stage it is also assigned a pair of links that refer to the time schedule for disposal of  building components.
 
@@ -48,17 +44,17 @@ After modeling and attribution of semantics to components, the quantity surveyer
    \label{fig:augmented}
 \end{figure}
 
-\subsection{Metior's output}
+\subsection{Process output}
 
 \noindent 
 Once the work is done and the model geometry is validated, the application provides a final report.
 In particular, the final report will allows the quantity surveyer and/or the other professionals involved in the deconstruction design team, to determine whether the decision taken is convenient both economically and/or environmentally.
 
 The final report consists of four documents.
-(i)~An estimate of volumes and weights of materials, computed by appropriate integration calculations, based on the geometry of components and annotations defined on them.
-(ii)~An estimate of demolition costs, including disposal and recovery.
+(i)~\emph{An estimate of volumes and weights of materials}, computed by appropriate integration calculations, based on the geometry of components and annotations defined on them.
+(ii)~\emph{An estimate of demolition costs}, including disposal and recovery.
 Starting from volumes and densities of materials, and from CER codes and hence the mode of disposal, it is estimated the cost of the contribution to landfills.
-(iii)~The transportation costs to move the materials to the closest landfills, taking into account the geographical position of the building, and by calculating the most convenient road routes.
-(iv)~An estimate of the expected time for the complete demolition of the building, located on a Gantt chart. A PERT program, automatically generated while annotating semantically the components of the building, is used for this purpose.
+(iii)~\emph{The transportation costs} to move the materials to the closest landfills, taking into account the geographical position of the building, and by calculating the most convenient road routes.
+(iv)~\emph{An estimate of the expected time} for the complete demolition of the building, located on a Gantt chart. A PERT program, automatically generated while annotating semantically the components of the building, is used for this purpose.
 
 \noindent
