@@ -1,13 +1,10 @@
 \section{\uppercase{Solid Modeling}}
 \label{sec:modeling}
 
-%\noindent Da Alberto
+\noindent
+The server-based geometric core of the modeling architecture is based on a set of python libraries, including \texttt{pyopengl}, \texttt{scipy}, \texttt{pyplasm} and \texttt{larlib}, that provide our current implementation of the LAR (Linear Algebraic Representation) scheme for solid modeling, 3D imaging and mesh representation, and which is briefly described in the following.
 
-%\noindent\lipsum[2-4]
-
-The server-based core of the modeling architecture is based on a set of python libraries, including \texttt{pyopengl}, \texttt{scipy}, \texttt{pyplasm} and \texttt{larlib}, that provide our current implementation of the LAR (Linear Algebraic Representation) scheme for solid modeling, 3D imaging and mesh representation, and which is briefly described in the following.
-
-\subsection{Linear Algebraic Representation}
+\vspace{-3mm}\subsection{Linear Algebraic Representation}\vspace{-3mm}
 
 LAR is a general-purpose representation scheme~\cite{Dicarlo:2014:TNL:2543138.2543294} for geometric and solid modeling introduced recently. The domain of the scheme is provided by dimension-independent \emph{cellular complexes}, while its codomain is that of \emph{sparse matrices}, stored using either the CSR (Compressed Sparse Row) or the CSC (Compressed Sparse Column) \texttt{scipy}'s memory format. The LAR polyhedral domain coincides with complexes of connected $d$-cells, even non-convex and/or including any number of holes. 
 
@@ -15,26 +12,26 @@ The very general shape allowed for cells makes the LAR scheme notably appropriat
 
 It is worth noting that LAR provides a direct management of all subsets of cells and their physical properties trough the linear spaces of \emph{chains} induced by the model partitioning, and their dual spaces of \emph{cochains}. The linear operators of \emph{boundary} and \emph{coboundary} between such linear spaces, suitably implemented by sparse matrices, directly provide, depending on the dimension of the mapped spaces, the discrete differential operators of \emph{gradient}, \emph{curl} and \emph{divergence}, while their product gives the \emph{Laplacian}~\cite{ieee-tase}.  
 
-\subsection{Geometric computing of shape}
+\vspace{-3mm}\subsection{Geometric computing of shape}\vspace{-3mm}
 
 Our computational environment is strongly oriented towards the most general parametric modeling of component shapes of buildings. This attitude is produced by two Python libraries, that provide a dimension-independent algebraic calculus with shapes (\texttt{pyplasm}) and their representation in the LAR scheme (\texttt{larlib}). 
 
-PLaSM~\cite{Paoluzzi:1995:GPP:212332.212349,Paoluzzi2003a}, which stands for Programming Language for Solid Modeling, is a geometry-oriented extension of the Backus' FL language~\cite{backus:78,BWWLA89}.  PLaSM is a project developed in the nineties in the framework of the \emph{Building Technologies Project} (\emph{``PF Edilizia''}) of the Italian National Research Council. The \texttt{pyplasm} module (2006-) is the C++ porting of PLaSM to Python via SWIG wrapping, providing several operators for fast and concise functional computing of shapes.
+PLaSM~\cite{Paoluzzi:1995:GPP:212332.212349,Paoluzzi:2001:GPC:600092}, which stands for Programming Language for Solid Modeling, is a geometry-oriented extension of the Backus' FL language~\cite{backus:78,BWWLA89}.  PLaSM is a project developed in the nineties in the framework of the \emph{Building Technologies Project} (\emph{``PF Edilizia''}) of the Italian National Research Council. The \texttt{pyplasm} module (2006-) is the C++ porting of PLaSM to Python via SWIG wrapping, providing several operators for fast and concise functional computing of shapes.
 
-On top of the Scipy/Pyplasm stack we started (2012), using literate programming methods, to build a set of software modules, named \texttt{larlib}, and using the LAR scheme. This library provides the computation of topological queries and physical properties of meshes and complexes, including integration of polynomials over the boundary of any chain of cells, using fast algebraic methods with sparse matrices. For interactive visualization it relies on the \texttt{pyplasm} viewer, based on OpenGL.
+On top of the Scipy/Pyplasm stack we started (2012), using literate programming methods, to build a set of software modules, named \texttt{larlib}, and using the LAR scheme. This library provides the computation of topological queries and physical properties of meshes and complexes, including integration of polynomials over the boundary of any chain of cells. For interactive visualization it relies on the \texttt{pyplasm} viewer, based on OpenGL.
 A porting of the most engaging parts of \texttt{larlib} to \emph{Julia}, the last-generation programming language  for scientific computing~\cite{BEKS14} started very recently, with the purpose of taking advantage of the great computational efficiency and parallelism of Julia in more demanding applications. 
 
-\subsection{Plugin server framework}
+\vspace{-3mm}\subsection{Plugin server framework}\vspace{-3mm}
 
 Our building deconstruction framework  has a web-based client-server architecture,  discussed in Section~\ref{sec:architecture}. 	\emph{Metior}, the web client application, is illustrated in Section~\ref{sec:application}. The server-side of the framework, discussed in this section, is a  plugin server written in Python, which capitalizes on the stack of geometric programming tools described above. 
 
-The Metior user quickly develops a 3D hierarchical assembly of different parts of the building envelope, as well as the horizontal and vertical partitions, using very simple 2D drawing tools. The more geometrically complex parts of the construction are conversely set up by user picking from context-based boards of predefined plugin templates, that are Python scripts generating solids models which are interactively dimensioned, partly by using 2D drawing tools, partly by user's numeric input from keyboard. 
+The Metior user quickly develops a 3D hierarchical assembly of different parts of the building envelope, as well as the horizontal and vertical partitions, using very simple 2D drawing tools. The more geometrically complex parts of the construction are conversely set up by user picking from context-based boards of predefined plugin templates, that are Python scripts~(see Figure~\ref{spiralstair}) generating solids models which are interactively dimensioned, partly by using 2D drawing tools, partly by user's numeric input from keyboard. 
 
 Of course, our list of \emph{plugin templates} embraces most of building parts that are not manageable for quick shape input via 2D interaction. In particular, the picking boards include templates for planar concrete frames, spatial building frames, building foundations, roofs and stairs of different types, attics and dormers, fireplaces and fitted wardrobes, shover cabins and sanitary equipments, doors and windows, etc.
 
 It is worth noting that, by virtue of the great expressiveness of the PLaSM operators and its functional style of programming, using first-class curried functions and dimension-independent geometry, the development of a new plugin template is very easy even for non-experienced programmers, and usually requires a tiny amount of time and code, that may range between 4-8 hours, and between 10-100 lines of Python/pyplasm code. 
 
-Two important points we would like to remark are the following: (a) the expressive power of a geometric language is greatly empowered by  currying, i.e.~by the technique of translating the evaluation of a function that takes multiple arguments (or a tuple of arguments) into evaluating a sequence of functions, each with a single argument; (b) Python/pyplasm are used even to teach (geometric) programming to K12 students~\cite{ncLab} (see \href{https://nclab.com/3d-gallery/}{\texttt{https://nclab.com/3d-gallery/}}). 
+Two important points we would like to remark are the following: (a) the expressive power of a geometric language is greatly empowered by  currying, i.e.~by the technique of translating the evaluation of a function that takes multiple arguments (or a tuple of arguments) into evaluating a sequence of functions, each with a single argument; (b) Python/pyplasm are used even to teach geometric programming to K12 students~\cite{ncLab} (see \href{https://nclab.com/3d-gallery/}{\texttt{https://nclab.com/3d-gallery/}}). 
 
 Most of plugin templates currently used by Metior were developed in class by students of the computer  graphics course taught by A.P., one of the authors (see \href{https://github.com/cvdlab-courses/ggpl/blob/master/slides.md}{\texttt{https://github.com/cvdlab-courses/ggpl/}})). 
 

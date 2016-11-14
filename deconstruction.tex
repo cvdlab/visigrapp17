@@ -1,19 +1,20 @@
 \section{\uppercase{Design for Deconstruction}}
 \label{sec:deconstruction}
 
+\noindent
+Waste management is an issue that in recent decades has become increasingly important, considering its economic, environmental and energy  impact.
 
-\subsection{Regulatory framework}
+\vspace{-3mm}\subsection{Regulatory framework}\vspace{-3mm}
 \label{sec:CER}
 
-Waste management is an issue that in recent decades has become increasingly important, considering its economic, environmental and energy  impact.
 The European Community has defined standards (EU 98/2008, 1357/2014) and goals (qualitative and quantitative) that Member States must comply with through the enactment of national regulations and the definition of economic instruments.
 
-Waste disposal, with direct and indirect costs involved, is enforced by Construction and Demolition activities. In European Waste Code/Classification (CER) [955/2014 EU] waste from the demolition of buildings are identified as class 17 -- Construction And Demolition Wastes. 
+Waste disposal, with direct and indirect costs involved, is enforced by Construction and Demolition activities. In European Waste Code/Classification (ECW) [955/2014 EU] waste from the demolition of buildings are identified as class 17 -- Construction And Demolition Wastes. 
 This classification allows a correct identification of both the waste generated from adoptable demolition modes, and the waste produced by actions of re-use, recycling or landfilling.
  
 The regulatory framework for waste management is far from clear, in particular in the national context. Despite its direct and indirect cost, the landfill is often preferred rather than risking administrative or criminal penalties for failure to comply with unclear rules.  
 
-\subsection{Proposed approach}
+\vspace{-3mm}\subsection{Proposed approach}\vspace{-3mm}
 
 Given this cumbersome regulatory framework, our project is promoting the use of simplified IT tools to support the deconstruction. In particular, a quick simplified geometric modeling of the building allows for integration of a semantic description of component parts and their materials. Virtual/Augmented Reality  strongly helps overcome the administrative difficulties, provided the correct identification of the waste produced.
 This approach will increase the adoption of virtuous actions, namely the recovery and reuse.
@@ -24,6 +25,10 @@ In particular, a  geometric modeling of the building allows you to identify:
 (c) achievement of the thresholds of reuse / recovery required by the regulations;
 (d) ability to economically compare different options.
 
+We started by considering the SMARTWaste system~\cite{smartWaste}. Their approach allows to derive estimates of the quantities of materials by providing a description of the type of building and the area where it was built. With this information, the forms that provide an aggregated representation of the data of interest are automatically filled.
+
+Our approach to deconstruction conversely provides both a geometric modeling of building subsystems and components and a semantic annotation with construction materials, like a sort of \emph{simplified BIM}. As a matter of fact, our national construction industry is strongly heterogeneous, so that  we need a pretty detailed modeling to obtain enough accurate information.
+One vantage point of this approach is an incremental iterative character, where each modeling stage may be followed by validation of partial costs.
 
  
 A large corpus of specialized literature exists about BIM for existing buildings. A very interesting review paper, discussing hundreds of references is~\cite{Volk2014109}. Its abstract tell us that:  ``While BIM processes are established for new buildings, the majority of existing buildings is not maintained, refurbished or deconstructed with BIM yet. Promising benefits of efficient resource management motivate research to overcome uncertainties of building condition and deficient documentation prevalent in existing buildings.''
