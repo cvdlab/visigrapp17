@@ -13,7 +13,7 @@ In particular, we ask for: the apparent age, the style of construction, the hist
 The estimated age and the style of construction are used to determine the needed data about the used materials; the record of use destinations allows you to to reconstruct the hazard notes of the items to be disposed of; geolocation finally allows to find out the recycling facilities closest to the site.
 
 \vspace{-2mm}\paragraph{Building modeling} 
-The user describes the construction using some predefined classes of elements, either instancing some  predefined parametric plugins or though wire-frame input of 2D layouts. 
+The user describes the construction using some predefined classes of elements, either instancing some  predefined parametric plugins or through wire-frame input of 2D layouts. 
 First is defined the building skeleton (backbone), i.e.~the set of beams and columns.
 On its horizontal sections, the user specifies the exterior and interior walls (vertical enclosure and partitions), on which the fixtures are positioned (horizontal communications).
 Ceilings and floors (horizontal partitions) are instead automatically generated from the topology (1-boundary) of the 2-skeleton (set of 2-cells) of the floors.
@@ -21,12 +21,12 @@ Finally, various elements such as stairs, elevators (vertical communications), f
 
 \vspace{-2mm}\paragraph{Semantic annotations} 
 At this stage the previously inserted elements are annotated semantically  by means of references to database of materials, including densities. The annotation may consists of one or more materials, including percentages.
-For disposal control imposed by regulations, the user should assign one / more CER codes and degrees of dangerousness (see Section~\ref{sec:CER}).
+For disposal control imposed by regulations, the user should assign one / more ECW codes and degrees of dangerousness (see Section~\ref{sec:CER}).
 In this stage it is also assigned a pair of links that refer to the time schedule for disposal of  building components.
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=1\linewidth]{images/3d-sel}
+  \includegraphics[width=1\linewidth]{images/3d-sel.png}
   \caption{Graphical interface for semantics annotation of a modeled object}
   \label{fig:semantics}
 \end{figure}
@@ -50,7 +50,7 @@ In particular, the final report will allows the quantity surveyer and/or the oth
 The final report consists of four documents.
 (i)~\emph{An estimate of volumes and weights of materials}, computed by appropriate integration calculations, based on the geometry of components and annotations defined on them.
 (ii)~\emph{An estimate of demolition costs}, including disposal and recovery.
-Starting from volumes and densities of materials, and from CER codes and hence the mode of disposal, it is estimated the cost of the contribution to landfills.
+Starting from volumes and densities of materials, and from ECW codes and hence the mode of disposal, it is estimated the cost of the contribution to landfills.
 (iii)~\emph{The transportation costs} to move the materials to the closest landfills, taking into account the geographical position of the building, and by calculating the most convenient road routes.
 (iv)~\emph{An estimate of the expected time} for the complete demolition of the building, located on a Gantt chart. A PERT program, automatically generated while annotating semantically the components of the building, is used for this purpose.
 
