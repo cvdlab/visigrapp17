@@ -106,9 +106,9 @@ The specific properties of an element can be edited in the relative panel in the
 \noindent Both the 3D and 2D model generations have been designed as \emph{asynchronous}. The actual result of the invocation of a generating function is not the generated model itself, but rather a \emph{promise} of the expected result. Such a design choice is important since the computation for model generation may require some while. In the meantime the user must be able to interact with the interface, which in turn must remain responsive. Relying on this architecture, generation of the models can be easily delegated to a server (as shown in Figure~\ref{fig:c-s-arch}), thus relieving the client from the burden of onerous computations. The server exposes a REST-like HTTP-based JSON API to the client. The plugins span from the client to the server, since the 2D and 3D generating functions  defined by the plugin, with superclasses \emph{2Dgf} and \emph{3Dgf}, are actually executed on the server, as shown in Figure~\ref{fig:c-s-arch} .
 
 
-\vspace{-1mm}\subsection{A plugin example}\vspace{-3mm}
+\vspace{-1mm}\subsection{Plugin example}\vspace{-3mm}
 
-In Figure~\ref{spiralstair} is shown the pluging used to generate a spiral concrete frame, where the steps are obtained by coded update of the polyhedral approximation of \texttt{larSolidHelicoid}, with parametric minor and major radiuses (\texttt{r} and \texttt{R}) and int number of \texttt{steps}. The \texttt{nturns} float is in radians.
+In Figure~\ref{spiralstair} is shown the plugin used to generate a spiral concrete frame, where the steps are obtained by coded update of the polyhedral approximation of \texttt{larSolidHelicoid}, with parametric minor and major radiuses (\texttt{r} and \texttt{R}) and int number of \texttt{steps}. The \texttt{nturns} float is in radians.
 
 \begin{figure}[h] %  figure placement: here, top, bottom, or page
    \centering
