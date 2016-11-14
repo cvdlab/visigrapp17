@@ -1,8 +1,15 @@
 \section{\uppercase{Solid Modeling}}
 \label{sec:modeling}
 
+\ifreview
+
 \noindent
+The server-based geometric core of the modeling architecture is based on a set of python libraries, including \texttt{pyopengl}, \texttt{scipy}, \texttt{pyplasm} and \texttt{larlib}, that provide the current implementation of the LAR (Linear Algebraic Representation) scheme for solid modeling, 3D imaging and mesh representation, and which is briefly described in the following.
+\else
+
 The server-based geometric core of the modeling architecture is based on a set of python libraries, including \texttt{pyopengl}, \texttt{scipy}, \texttt{pyplasm} and \texttt{larlib}, that provide our current implementation of the LAR (Linear Algebraic Representation) scheme for solid modeling, 3D imaging and mesh representation, and which is briefly described in the following.
+
+\fi
 
 \vspace{-3mm}\subsection{Linear Algebraic Representation}\vspace{-3mm}
 
@@ -33,6 +40,13 @@ It is worth noting that, by virtue of the great expressiveness of the PLaSM oper
 
 Two important points we would like to remark are the following: (a) the expressive power of a geometric language is greatly empowered by  currying, i.e.~by the technique of translating the evaluation of a function that takes multiple arguments (or a tuple of arguments) into evaluating a sequence of functions, each with a single argument; (b) Python/pyplasm are used even to teach geometric programming to K12 students~\cite{ncLab} (see \href{https://nclab.com/3d-gallery/}{\texttt{https://nclab.com/3d-gallery/}}). 
 
-Most of plugin templates currently used by Metior were developed in class by students of the computer  graphics course taught by A.P., one of the authors (see \href{https://github.com/cvdlab-courses/ggpl/blob/master/slides.md}{\texttt{https://github.com/cvdlab-courses/ggpl/}})). 
+\ifreview
 
+Most of plugin templates currently used by Metior were developed in class by students of the computer  graphics course taught by X.X., one of the authors (see \href{https://github.com/xxxxxx-xxxxxxx/xxxx/xxxx/xxxxxx/xxxxxx.xx}{\texttt{https://github.com/xxxxxx-xxxxxxx/xxxx/}})). 
+
+\else
+
+Most of plugin templates currently used by Metior were developed in class by students of the computer  graphics course taught by A.P., one of the authors (see \href{https://github.com/cvdlab-courses/ggpl/blob/master/slides.md}{\texttt{https://github.com/cvdlab-courses/ggpl/}})).
+
+\fi
 
