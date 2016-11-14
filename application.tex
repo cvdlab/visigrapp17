@@ -4,7 +4,7 @@
 \noindent
 A deconstruction oriented to the maximum reuse of materials must be supported by a \emph{workflow} that guides the user towards estimating the costs of the process. The aim is the determination of  \emph{building demolition costs}, depending also on transportation  and disposal of materials.
 
-\subsection{Workflow}
+\vspace{-3mm}\subsection{Workflow}\vspace{-3mm}
 
 \paragraph{Project definition} 
 
@@ -12,16 +12,14 @@ The first phase of the modeling process is a gross description of the building, 
 In particular, we ask for: the apparent age, the style of construction, the historic use register, and the geolocation.
 The estimated age and the style of construction are used to determine the needed data about the used materials; the record of use destinations allows you to to reconstruct the hazard notes of the items to be disposed of; geolocation finally allows to find out the recycling facilities closest to the site.
 
-\paragraph{Building modeling} 
-
+\vspace{-2mm}\paragraph{Building modeling} 
 The user describes the construction using some predefined classes of elements, either instancing some  predefined parametric plugins or though wire-frame input of 2D layouts. 
 First is defined the building skeleton (backbone), i.e.~the set of beams and columns.
 On its horizontal sections, the user specifies the exterior and interior walls (vertical enclosure and partitions), on which the fixtures are positioned (horizontal communications).
 Ceilings and floors (horizontal partitions) are instead automatically generated from the topology (1-boundary) of the 2-skeleton (set of 2-cells) of the floors.
 Finally, various elements such as stairs, elevators (vertical communications), foundations and roofs (horizontal enclosures) are placed, using ad-hoc templates interactively provided by Metior's plugin server, for appropriate sizing and part dimensioning.
 
-\paragraph{Semantic annotations} 
-
+\vspace{-2mm}\paragraph{Semantic annotations} 
 At this stage the previously inserted elements are annotated semantically  by means of references to database of materials, including densities. The annotation may consists of one or more materials, including percentages.
 For disposal control imposed by regulations, the user should assign one / more CER codes and degrees of dangerousness (see Section~\ref{sec:CER}).
 In this stage it is also assigned a pair of links that refer to the time schedule for disposal of  building components.
@@ -33,8 +31,7 @@ In this stage it is also assigned a pair of links that refer to the time schedul
   \label{fig:semantics}
 \end{figure}
 
-\paragraph{Augmented reality visualization} 
-
+\vspace{-2mm}\paragraph{Augmented reality visualization} 
 After modeling and attribution of semantics to components, the quantity surveyer can validate the entire model by spatial merging into a 3D point cloud (see Figure~\ref{fig:augmented}) previously obtained by using flying drones for the exterior, or 3D laser scanners for the interior. In this way one can assess the adhesion of the modeled building structure to reality, possibly retracing to some previous step if the result is still not satisfactory.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
@@ -44,7 +41,7 @@ After modeling and attribution of semantics to components, the quantity surveyer
    \label{fig:augmented}
 \end{figure}
 
-\subsection{Process output}
+\vspace{-3mm}\subsection{Process output}\vspace{-3mm}
 
 \noindent 
 Once the work is done and the model geometry is validated, the application provides a final report.

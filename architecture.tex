@@ -4,21 +4,16 @@
 % principles
 \noindent Workflow and requirements described in the previous section have been received in a prototypal application serving as proof of concept. With the aim of maximize accessibility for surveyors, it is strongly web based and runs in all modern browsers. It is built using React by Facebook and an MVC design pattern with \emph{unidirectional data flow} \cite{redux}:  it ensures the best code maintainability and debuggability by centralizing access to the application state to a single controller.
 
-\subsection{UI \& UX}
+\vspace{-3mm}\subsection{UI \& UX}\vspace{-3mm}
 
 The web application presents itself as a simplified CAD,  the UI comprises three main areas of interaction: \emph{toolbar}, \emph{canvas} and \emph{sidebar}, as shown by Figures~\ref{fig:ui} and~\ref{fig:ui2}.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=1\linewidth]{images/2d}
-   \caption{\emph{Metior} user interface with 2D canvas}
    \label{fig:ui}
-\end{figure}
-
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-   \centering
    \includegraphics[width=1\linewidth]{images/3d}
-   \caption{\emph{Metior} user interface with 3D canvas}
+   \caption{\emph{Metior} user interface: (a) 3D canvas; (b) 3D canvas}
    \label{fig:ui2}
 \end{figure}
 
@@ -30,7 +25,7 @@ The \emph{canvas} is the area in which the user can interact with actual model d
 The \emph{sidebar} shows the properties of the currently selected element.
 In the properties panel it is possible to view the description of the element, to add/remove metadata, and to modify any property. The latter is the interaction mode that allows the user to associate semantics annotations to every part of the model.
 
-\subsection{Plugin-architecture}
+\vspace{-3mm}\subsection{Plugin-architecture}\vspace{-3mm}
 
 \noindent The application has been designed to provide a small set of core interaction functionalities and to encapsulate the generation logic for architectural components (from the very basic to the most articulated) into specific plugins.
 
@@ -65,6 +60,15 @@ while an ``electric panel'' is a ``volume over vertical area'' element.
 
 In the design phase, an element that doesn't meet the placement constraints defined by the \emph{placement type} is notified by the system as a visual warning, showing its bounding-box in semi-transparent blinked red color.
 
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+
+   \includegraphics[width=0.6\linewidth]{images/architecture-h}
+
+   \caption{Client/Server architecture for server-side model generation.}
+   \label{fig:c-s-arch}
+\end{figure}
+
 \subsubsection{Plugin specific properties}
 
 \noindent Each plugin has a set of specific properties of the building elements it represents.
@@ -77,7 +81,7 @@ For example, a ``color'' property can be introduced by defining a UI component c
 
 The specific properties of an element can be edited in the relative panel in the sidebar, once the element is selected in the canvas.
 
-\subsection{Plugin Catalog}
+\vspace{-3mm}\subsection{Plugin Catalog}\vspace{-3mm}
 \noindent It is pivotal to provide surveyors with a rich catalog of plugins, to cover all the basic as well as the most advanced modeling requirements. Table~\ref{tab:plugins-example} reports examples of plugins arranged according to the  taxonomy introduced in Section~\ref{ssec:taxonomy}.
 
 \begin{table}[htbp]
@@ -96,21 +100,21 @@ The specific properties of an element can be edited in the relative panel in the
 \label{tab:plugins-example}
 \end{table}
 
-\subsection{Server-side models generation}
+
+\vspace{-3mm}\subsection{Server-side models generation}\vspace{-3mm}
 
 \noindent Both the 3D and 2D model generations have been designed as \emph{asynchronous}. The actual result of the invocation of a generating function is not the generated model itself, but rather a \emph{promise} of the expected result. Such a design choice is important since the computation for model generation may require some while. In the meantime the user must be able to interact with the interface, which in turn must remain responsive. Relying on this architecture, generation of the models can be easily delegated to a server (as shown in Figure~\ref{fig:c-s-arch}), thus relieving the client from the burden of onerous computations. The server exposes a REST-like HTTP-based JSON API to the client. The plugins span from the client to the server, since the 2D and 3D generating functions  defined by the plugin, with superclasses \emph{2Dgf} and \emph{3Dgf}, are actually executed on the server, as shown in Figure~\ref{fig:c-s-arch} .
 
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+
+\vspace{-1mm}\subsection{A plugin example}\vspace{-3mm}
+
+\begin{figure}[h] %  figure placement: here, top, bottom, or page
    \centering
-
-   \includegraphics[width=0.6\linewidth]{images/architecture-h}
-
-   \caption{Client/Server architecture for server-side model generation.}
-   \label{fig:c-s-arch}
+   \includegraphics[width=\linewidth]{images/spiralstair}
+   
+   \includegraphics[width=\linewidth]{images/spiralstair2}
+   \caption{(a) The generating function of a strongly parameterized \texttt{spiralStair}; (b) default \texttt{spiralStair}.}
+   \label{spiralstair}
 \end{figure}
-
-\subsection{A plugin example}
-
-POTREBBE ESSERE UTILE INSERE LA DEFINIZIONE DEL PLUGIN SCALA AD ESEMPIO?
 
 
