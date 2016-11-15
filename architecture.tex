@@ -1,3 +1,4 @@
+\vspace{-5mm}
 \section{\uppercase{Design and Architecture}}
 \label{sec:architecture}
 
@@ -6,21 +7,21 @@
 
 \vspace{-3mm}\subsection{UI \& UX}\vspace{-3mm}
 
-The web application presents itself as a simplified CAD,  the UI comprises three main areas of interaction: \emph{toolbar}, \emph{canvas} and \emph{sidebar}, as shown by Figures~\ref{fig:ui} and~\ref{fig:ui2}.
+The web application presents itself as a simplified CAD,  the UI comprises three main areas of interaction: \emph{toolbar}, \emph{canvas} and \emph{sidebar}, as shown by Figure~\ref{fig:ui2}.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=1\linewidth]{images/2d}
    \label{fig:ui}
    \includegraphics[width=1\linewidth]{images/3d}
-   \caption{\emph{Metior} user interface: (a) 3D canvas; (b) 3D canvas}
+   \caption{\emph{Metior} user interface: (a) 2D canvas; (b) 3D canvas}
    \label{fig:ui2}
 \end{figure}
 
-From the \emph{toolbar} the user can access functionalities related to: (1) project life cycle ({\tt new}, {\tt save}, {\tt load}); (2) project editing  ({\tt  show-catalog}); (3) view/interaction mode switching ({\tt 2D}, {\tt  3D}); interaction mode changing ({\tt  selecting}, {\tt pan}, {\tt zoom}).
+From the \emph{toolbar} the user can access functionalities related to: project life cycle ({\tt new}, {\tt save}, {\tt load}); project editing  ({\tt  show-catalog}); view/interaction mode switching ({\tt 2D}, {\tt  3D}); interaction mode changing ({\tt  selecting}, {\tt pan}, {\tt zoom}).
 
 
-The \emph{canvas} is the area in which the user can interact with actual model data. It supports two different view and interaction modes: (1) in~\emph{2D-mode} the model is displayed as a 2D projection from the top, and the interaction consists of element insertion, selection and editing (according to specific plugin interaction prototype, see~\ref{ssec:taxonomy}); (2) in~\emph{3D-mode} a 3D model can be inspected and navigated, respectively via trackball or first-person interaction style, while object picking allows for element selection.
+The \emph{canvas} is the area in which the user can interact with actual model data. It supports two different view and interaction modes. In~\emph{2D-mode} the model is displayed as a 2D projection from the top, and the interaction consists of element insertion, selection and editing (according to specific plugin interaction prototype, see~\ref{ssec:taxonomy}). In~\emph{3D-mode} a 3D model can be inspected and navigated, respectively via trackball or first-person interaction style, while object picking allows for element selection.
 
 The \emph{sidebar} shows the properties of the currently selected element.
 In the properties panel it is possible to view the description of the element, to add/remove metadata, and to modify any property. The latter is the interaction mode that allows the user to associate semantics annotations to every part of the model.
@@ -33,13 +34,13 @@ A \emph{plugin} is a software component that can be seamlessly integrated into t
 In \emph{Metior}, a plugin represents an architectural element that extends the Building Information Model design.
 Technically, a plugin represents a \emph{prototype} (namely a ``class'' in OOP) of a construction element that can be inserted (``instantiated'') into the \emph{canvas}, thus defining a new element, i.e. a new component of the model.
 
-\subsubsection{Plugin definition}
+\vspace{-3mm}\paragraph{Plugin definition}
 
-A plugin is described by the following eight properties: (1) a unique name; (2) a description; (3) a set of metadata; (4) the \emph{occupation type} (one among \emph{linear}, \emph{area} or \emph{volume}); (5) the \emph{placement type} (\emph{inside} or \emph{over}); (6) a set of specific properties mapping the semantic to associate to the plugin; (7) a construction function that returns the 2D representation of the element in SVG format, to be used in the \emph{2D-mode}; (8) a construction function that returns the 3D representation of the element in OBJ format, to be used in the \emph{3D-mode}.
+A plugin is described by the following eight properties: (1) a unique name; (2) a description; (3) a set of metadata; (4) the \emph{occupation type} (one among \emph{linear}, \emph{area} or \emph{volume}); (5) the \emph{placement type} (\emph{inside} or \emph{over}); (6) a set of specific properties mapping the semantic to associate to the plugin; (7) a \emph{generating function} that returns the 2D representation of the element in SVG format, to be used in the \emph{2D-mode}; (8) a \emph{generating function} that returns the 3D representation of the element in OBJ format, to be used in the \emph{3D-mode}.
 
-\subsubsection{Plugins taxonomy}\label{ssec:taxonomy}
+\vspace{-3mm}\paragraph{Plugins taxonomy}\label{ssec:taxonomy}
 
-\noindent The plugins can be organized according to the \emph{occupation type} and the \emph{placement type}. 
+\noindent The plugins can be organized according to \emph{occupation type} and \emph{placement type}. 
 
 In the \emph{occupation type} three different kind of plugins can be identified: \emph{linear}, \emph{area} or \emph{volume} plugins.
 The \emph{linear} ones extend in one dimension (unless a radial thickness) (e.g. hydraulic lines, electrical cables). The \emph{area} plugins extend in two dimensions (unless a linear thickness), (e.g. separation elements). They can be divided into \emph{horizontal area} (e.g. floor and ceil), and \emph{vertical area}, (e.g. walls). The \emph{volume} plugins extend in three dimensions. They can be \emph{fixed volume}, (e.g. a piece of furniture) and \emph{scalable volume}, that can be scaled (proportionally or not), (eg. pillars, staircases).
@@ -69,7 +70,7 @@ In the design phase, an element that doesn't meet the placement constraints defi
    \label{fig:c-s-arch}
 \end{figure}
 
-\subsubsection{Plugin specific properties}
+\vspace{-3mm}\paragraph{Plugin specific properties}
 
 \noindent Each plugin has a set of specific properties of the building elements it represents.
 Each property is defined by a  \emph{name}, a \emph{type}, such as ``number'', ``text'', ``boolean'', or ``custom'', and by a \emph{value}.
