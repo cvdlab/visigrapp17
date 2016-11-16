@@ -14,9 +14,9 @@ The estimated age and the style of construction are used to determine the needed
 
 \vspace{-2mm}\paragraph{Building modeling} 
 The user describes the construction using some predefined classes of elements, either instancing some  predefined parametric plugins or through wire-frame input of 2D layouts. 
-First is defined the building skeleton (backbone), i.e.~the set of beams and columns.
+First is defined the building skeleton (backbone), i.e.~the set of beams and columns or load-bearing walls, providing the structural grid.
 On its horizontal sections, the user specifies the exterior and interior walls (vertical enclosure and partitions), on which the fixtures are positioned (horizontal communications).
-Ceilings and floors (horizontal partitions) are instead automatically generated from the topology (1-boundary) of the 2-skeleton (set of 2-cells) of the floors.
+Ceilings and floors (horizontal partitions) are instead automatically generated from the topology (1-boundary) of the 2-skeleton of the floors (subsets of 2-cells).
 Finally, various elements such as stairs, elevators (vertical communications), foundations and roofs (horizontal enclosures) are placed, using ad-hoc templates interactively provided by Metior's plugin server, for appropriate sizing and part dimensioning.
 
 \vspace{-2mm}\paragraph{Semantic annotations} 
