@@ -1,6 +1,7 @@
-\vspace{-5mm}
+\vspace{-4mm}
 \section{\uppercase{Design and Architecture}}
 \label{sec:architecture}
+\vspace{-2mm}
 
 % principles
 \noindent Workflow and requirements described in the previous section have been received in a prototypal application serving as proof of concept. With the aim of maximize accessibility for surveyors, it is strongly web based and runs in all modern browsers. It is built using React by Facebook and an MVC design pattern with \emph{unidirectional data flow} \cite{redux}:  it ensures the best code maintainability and debuggability by centralizing access to the application state to a single controller.
@@ -117,6 +118,10 @@ In Figure~\ref{spiralstair} it is shown the plugin used to generate a concrete s
    
    \includegraphics[width=\linewidth]{images/spiralstair2}
    \caption{(a) The generating function of a strongly parameterized \texttt{spiralStair}; (b) default \texttt{spiralStair}.}
+   \label{spiralstair}
+\vspace{2mm}
+   \includegraphics[width=\linewidth]{images/frame}
+      \caption{A spatial concrete frame developed by the \texttt{pyplasm} plugin \texttt{spatialFrame} from a simple \texttt{.csv} input.}
    \label{spiralstair}
 \end{figure}
 
