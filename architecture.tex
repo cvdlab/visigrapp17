@@ -1,13 +1,14 @@
-\vspace{-5mm}
+\vspace{-4mm}
 \section{\uppercase{Design and Architecture}}
 \label{sec:architecture}
+\vspace{-2mm}
 
 % principles
 \noindent Workflow and requirements described in the previous section have been received in a prototypal application serving as proof of concept. With the aim of maximize accessibility for surveyors, it is strongly web based and runs in all modern browsers. It is built using React by Facebook and an MVC design pattern with \emph{unidirectional data flow} \cite{redux}:  it ensures the best code maintainability and debuggability by centralizing access to the application state to a single controller.
 
-\vspace{-3mm}\subsection{UI \& UX}\vspace{-3mm}
+\vspace{-3mm}\subsection{UI and user experience}\vspace{-3mm}
 
-The web application presents itself as a simplified CAD,  the UI comprises three main areas of interaction: \emph{toolbar}, \emph{canvas} and \emph{sidebar}, as shown by Figure~\ref{fig:ui2}.
+The web application presents itself as a simplified CAD, where the user interface comprises three main areas of interaction: \emph{toolbar}, \emph{canvas} and \emph{sidebar}, as shown by Figures~\ref{fig:ui2}a and~\ref{fig:ui2}b.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -40,7 +41,7 @@ A plugin is described by the following eight properties: (1) a unique name; (2) 
 
 \vspace{-3mm}\paragraph{Plugins taxonomy}\label{ssec:taxonomy}
 
-\noindent The plugins can be organized according to \emph{occupation type} and \emph{placement type}. 
+\noindent The plugins can be organized according to \emph{occupation type} and \emph{placement type}.
 
 In the \emph{occupation type} three different kind of plugins can be identified: \emph{linear}, \emph{area} or \emph{volume} plugins.
 The \emph{linear} ones extend in one dimension (unless a radial thickness) (e.g. hydraulic lines, electrical cables). The \emph{area} plugins extend in two dimensions (unless a linear thickness), (e.g. separation elements). They can be divided into \emph{horizontal area} (e.g. floor and ceil), and \emph{vertical area}, (e.g. walls). The \emph{volume} plugins extend in three dimensions. They can be \emph{fixed volume}, (e.g. a piece of furniture) and \emph{scalable volume}, that can be scaled (proportionally or not), (eg. pillars, staircases).
@@ -109,7 +110,7 @@ The specific properties of an element can be edited in the relative panel in the
 
 \vspace{-1mm}\subsection{Plugin example}\vspace{-3mm}
 
-In Figure~\ref{spiralstair} is shown the plugin used to generate a spiral concrete frame, where the steps are obtained by coded update of the polyhedral approximation of \texttt{larSolidHelicoid}, with parametric minor and major radiuses (\texttt{r} and \texttt{R}) and int number of \texttt{steps}. The \texttt{nturns} float is in radians.
+Figure~\ref{spiralstair} shows the plugin used to generate concrete spiral stairs, with steps from coded update of a polyhedral approximation of a \texttt{larSolidHelicoid()},  minor and major radiuses (\texttt{r} and \texttt{R}) and \texttt{int} number of \texttt{steps}. The \texttt{nturns} float is in radians. A plugin for spatial frames is shown in Figure~\ref{spatialFrame}.
 
 \begin{figure}[h] %  figure placement: here, top, bottom, or page
    \centering
@@ -118,5 +119,10 @@ In Figure~\ref{spiralstair} is shown the plugin used to generate a spiral concre
    \includegraphics[width=\linewidth]{images/spiralstair2}
    \caption{(a) The generating function of a strongly parameterized \texttt{spiralStair}; (b) default \texttt{spiralStair}.}
    \label{spiralstair}
+\vspace{2mm}
+   \includegraphics[width=\linewidth]{images/frame}
+      \caption{A spatial concrete frame generated, from a small \texttt{.csv} file, by the \texttt{pyplasm} plugin \texttt{spatialFrame}.}
+   \label{spatialFrame}
 \end{figure}
+
 
