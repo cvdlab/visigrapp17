@@ -1,13 +1,18 @@
-\vspace{-4mm}
+%\vspace{-4mm}
 \section{\uppercase{Design and Architecture}}
 \label{sec:architecture}
-\vspace{-2mm}
+%\vspace{-2mm}
 
 % principles
-\noindent Workflow and requirements described in the previous section have been received in a prototypal application serving as proof of concept. With the aim of maximize accessibility for surveyors, it is strongly web based and runs in all modern browsers. It is built using React by Facebook and an MVC design pattern with \emph{unidirectional data flow} \cite{redux}:  it ensures the best code maintainability and debuggability by centralizing access to the application state to a single controller.
 
-\vspace{-3mm}\subsection{UI and user experience}\vspace{-3mm}
+\noindent
+Workflow and requirements described in the previous section have been received in a prototypal application serving as proof of concept. With the aim of maximize accessibility for surveyors, it is strongly web based and runs in all modern browsers. It is built using React by Facebook and an MVC design pattern with \emph{unidirectional data flow} \cite{redux}:  it ensures the best code maintainability and debuggability by centralizing access to the application state to a single controller.
 
+%\vspace{-3mm}
+\subsection{UI and user experience}
+%\vspace{-3mm}
+
+\noindent
 The web application presents itself as a simplified CAD, where the user interface comprises three main areas of interaction: \emph{toolbar}, \emph{canvas} and \emph{sidebar}, as shown by Figures~\ref{fig:ui2}a and~\ref{fig:ui2}b.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
@@ -27,21 +32,29 @@ The \emph{canvas} is the area in which the user can interact with actual model d
 The \emph{sidebar} shows the properties of the currently selected element.
 In the properties panel it is possible to view the description of the element, to add/remove metadata, and to modify any property. The latter is the interaction mode that allows the user to associate semantics annotations to every part of the model.
 
-\vspace{-3mm}\subsection{Plugin-architecture}\vspace{-3mm}
+%\vspace{-3mm}
+\subsection{Plugin-architecture}
+%\vspace{-3mm}
 
-\noindent The application has been designed to provide a small set of core interaction functionalities and to encapsulate the generation logic for architectural components (from the very basic to the most articulated) into specific plugins.
+\noindent
+The application has been designed to provide a small set of core interaction functionalities and to encapsulate the generation logic for architectural components (from the very basic to the most articulated) into specific plugins.
 
 A \emph{plugin} is a software component that can be seamlessly integrated into the system in order to extends its capabilities.
 In \emph{Metior}, a plugin represents an architectural element that extends the Building Information Model design.
 Technically, a plugin represents a \emph{prototype} (namely a ``class'' in OOP) of a construction element that can be inserted (``instantiated'') into the \emph{canvas}, thus defining a new element, i.e. a new component of the model.
 
-\vspace{-3mm}\paragraph{Plugin definition}
+%\vspace{-3mm}
+\paragraph{Plugin definition}
 
+\noindent
 A plugin is described by the following eight properties: (1) a unique name; (2) a description; (3) a set of metadata; (4) the \emph{occupation type} (one among \emph{linear}, \emph{area} or \emph{volume}); (5) the \emph{placement type} (\emph{inside} or \emph{over}); (6) a set of specific properties mapping the semantic to associate to the plugin; (7) a \emph{generating function} that returns the 2D representation of the element in SVG format, to be used in the \emph{2D-mode}; (8) a \emph{generating function} that returns the 3D representation of the element in OBJ format, to be used in the \emph{3D-mode}.
 
-\vspace{-3mm}\paragraph{Plugins taxonomy}\label{ssec:taxonomy}
+%\vspace{-3mm}
+\paragraph{Plugins taxonomy}
+\label{ssec:taxonomy}
 
-\noindent The plugins can be organized according to \emph{occupation type} and \emph{placement type}.
+\noindent
+The plugins can be organized according to \emph{occupation type} and \emph{placement type}.
 
 In the \emph{occupation type} three different kind of plugins can be identified: \emph{linear}, \emph{area} or \emph{volume} plugins.
 The \emph{linear} ones extend in one dimension (unless a radial thickness) (e.g. hydraulic lines, electrical cables). The \emph{area} plugins extend in two dimensions (unless a linear thickness), (e.g. separation elements). They can be divided into \emph{horizontal area} (e.g. floor and ceil), and \emph{vertical area}, (e.g. walls). The \emph{volume} plugins extend in three dimensions. They can be \emph{fixed volume}, (e.g. a piece of furniture) and \emph{scalable volume}, that can be scaled (proportionally or not), (eg. pillars, staircases).
@@ -71,9 +84,11 @@ In the design phase, an element that doesn't meet the placement constraints defi
    \label{fig:c-s-arch}
 \end{figure}
 
-\vspace{-3mm}\paragraph{Plugin specific properties}
+%\vspace{-3mm}
+\paragraph{Plugin specific properties}
 
-\noindent Each plugin has a set of specific properties of the building elements it represents.
+\noindent
+Each plugin has a set of specific properties of the building elements it represents.
 Each property is defined by a  \emph{name}, a \emph{type}, such as ``number'', ``text'', ``boolean'', or ``custom'', and by a \emph{value}.
 According to its type, each property value can be inserted in different ways.
 For example, a boolean property value is set through a checkbox, while a textual property is set through a text box.
@@ -83,8 +98,12 @@ For example, a ``color'' property can be introduced by defining a UI component c
 
 The specific properties of an element can be edited in the relative panel in the sidebar, once the element is selected in the canvas.
 
-\vspace{-3mm}\subsection{Plugin Catalog}\vspace{-3mm}
-\noindent It is pivotal to provide surveyors with a rich catalog of plugins, to cover all the basic as well as the most advanced modeling requirements. Table~\ref{tab:plugins-example} reports examples of plugins arranged according to the  taxonomy introduced in Section~\ref{ssec:taxonomy}.
+%\vspace{-3mm}
+\subsection{Plugin Catalog}
+%\vspace{-3mm}
+
+\noindent
+It is pivotal to provide surveyors with a rich catalog of plugins, to cover all the basic as well as the most advanced modeling requirements. Table~\ref{tab:plugins-example} reports examples of plugins arranged according to the  taxonomy introduced in Section~\ref{ssec:taxonomy}.
 
 \begin{table}[htbp]
 \small
@@ -103,26 +122,45 @@ The specific properties of an element can be edited in the relative panel in the
 \end{table}
 
 
-\vspace{-3mm}\subsection{Server-side models generation}\vspace{-3mm}
+%\vspace{-3mm}
+\subsection{Server-side models generation}
+%\vspace{-3mm}
 
-\noindent Both the 3D and 2D model generations have been designed as \emph{asynchronous}. The actual result of the invocation of a generating function is not the generated model itself, but rather a \emph{promise} of the expected result. Such a design choice is important since the computation for model generation may require some while. In the meantime the user must be able to interact with the interface, which in turn must remain responsive. Relying on this architecture, generation of the models can be easily delegated to a server (as shown in Figure~\ref{fig:c-s-arch}), thus relieving the client from the burden of onerous computations. The server exposes a REST-like HTTP-based JSON API to the client. The plugins span from the client to the server, since the 2D and 3D generating functions  defined by the plugin, with superclasses \emph{2Dgf} and \emph{3Dgf}, are actually executed on the server, as shown in Figure~\ref{fig:c-s-arch} .
+\noindent
+Both the 3D and 2D model generations have been designed as \emph{asynchronous}. The actual result of the invocation of a generating function is not the generated model itself, but rather a \emph{promise} of the expected result. Such a design choice is important since the computation for model generation may require some while. In the meantime the user must be able to interact with the interface, which in turn must remain responsive. Relying on this architecture, generation of the models can be easily delegated to a server (as shown in Figure~\ref{fig:c-s-arch}), thus relieving the client from the burden of onerous computations. The server exposes a REST-like HTTP-based JSON API to the client. The plugins span from the client to the server, since the 2D and 3D generating functions  defined by the plugin, with superclasses \emph{2Dgf} and \emph{3Dgf}, are actually executed on the server, as shown in Figure~\ref{fig:c-s-arch} .
 
 
-\vspace{-1mm}\subsection{Plugin example}\vspace{-3mm}
+%\vspace{-1mm}
+\subsection{Plugin example}
+%\vspace{-3mm}
 
-Figure~\ref{spiralstair} shows the plugin used to generate concrete spiral stairs, with steps from coded update of a polyhedral approximation of a \texttt{larSolidHelicoid()},  minor and major radiuses (\texttt{r} and \texttt{R}) and \texttt{int} number of \texttt{steps}. The \texttt{nturns} float is in radians. A plugin for spatial frames is shown in Figure~\ref{spatialFrame}.
-
-\begin{figure}[h] %  figure placement: here, top, bottom, or page
+\begin{figure}[t] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=\linewidth]{images/spiralstair}
    
    \includegraphics[width=\linewidth]{images/spiralstair2}
    \caption{(a) The generating function of a strongly parameterized \texttt{spiralStair}; (b) default \texttt{spiralStair}.}
    \label{spiralstair}
-\vspace{2mm}
+%\vspace{2mm}
+%   \includegraphics[width=\linewidth]{images/frame}
+%      \caption{A spatial concrete frame generated, from a small \texttt{.csv} file, by the \texttt{pyplasm} plugin %\texttt{spatialFrame}.}
+%   \label{spatialFrame}
+\end{figure}
+
+\noindent
+Figure~\ref{spiralstair} shows the plugin used to generate concrete spiral stairs, with steps from coded update of a polyhedral approximation of a \texttt{larSolidHelicoid()},  minor and major radiuses (\texttt{r} and \texttt{R}) and \texttt{int} number of \texttt{steps}. The \texttt{nturns} float is in radians. A plugin for spatial frames is shown in Figure~\ref{spatialFrame}.
+
+
+\begin{figure}[t] %  figure placement: here, top, bottom, or page
+   \centering
+%   \includegraphics[width=\linewidth]{images/spiralstair}
+%   
+%   \includegraphics[width=\linewidth]{images/spiralstair2}
+%   \caption{(a) The generating function of a strongly parameterized \texttt{spiralStair}; (b) default \texttt{spiralStair}.}
+%   \label{spiralstair}
+%\vspace{2mm}
    \includegraphics[width=\linewidth]{images/frame}
       \caption{A spatial concrete frame generated, from a small \texttt{.csv} file, by the \texttt{pyplasm} plugin \texttt{spatialFrame}.}
    \label{spatialFrame}
 \end{figure}
-
 
