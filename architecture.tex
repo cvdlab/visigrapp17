@@ -6,14 +6,14 @@
 % principles
 
 \noindent
-Workflow and requirements described in the previous section have been received in a prototypal application serving as proof of concept. With the aim of maximize accessibility for surveyors, it is strongly web based and runs in all modern browsers. It is built using React by Facebook and an MVC design pattern with \emph{unidirectional data flow} \cite{redux}:  it ensures the best code maintainability and debuggability by centralizing access to the application state to a single controller.
+Workflow and requirements described in the previous section have been received in a prototypal application serving as proof of concept. With the aim of maximize accessibility for quantity surveyors, it is strongly web based and runs in all modern browsers. It is built using React by Facebook and an MVC design pattern with \emph{unidirectional data flow} \cite{redux}:  it ensures the best code maintainability and debuggability by centralizing access to the application state in a single controller.
 
 %\vspace{-3mm}
 \subsection{UI and user experience}
 %\vspace{-3mm}
 
 \noindent
-The web application presents itself as a simplified CAD, where the user interface comprises three main areas of interaction: \emph{toolbar}, \emph{canvas} and \emph{sidebar}, as shown by Figures~\ref{fig:ui2}a and~\ref{fig:ui2}b.
+The web application presents itself as a simplified CAD software, where the user interface comprises three main areas of interaction: \emph{toolbar}, \emph{canvas} and \emph{sidebar}, as shown by Figures~\ref{fig:ui2}a and~\ref{fig:ui2}b.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -41,7 +41,7 @@ The application has been designed to provide a small set of core interaction fun
 
 A \emph{plugin} is a software component that can be seamlessly integrated into the system in order to extends its capabilities.
 In \emph{Metior}, a plugin represents an architectural element that extends the Building Information Model design.
-Technically, a plugin represents a \emph{prototype} (namely a ``class'' in OOP) of a construction element that can be inserted (``instantiated'') into the \emph{canvas}, thus defining a new element, i.e. a new component of the model.
+Technically, a plugin represents a \emph{prototype} (namely a ``class'' in OOP) of a construction element that can be inserted (``instantiated'') into the \emph{canvas}, thus defining a new \emph{element}, i.e. a new component of the model.
 
 %\vspace{-3mm}
 \paragraph{Plugin definition}
@@ -89,7 +89,7 @@ In the design phase, an element that doesn't meet the placement constraints defi
 
 \noindent
 Each plugin has a set of specific properties of the building elements it represents.
-Each property is defined by a  \emph{name}, a \emph{type}, such as ``number'', ``text'', ``boolean'', or ``custom'', and by a \emph{value}.
+Each property is defined by (1) a \emph{name}, (2) a \emph{type}, such as ``number'', ``text'', ``boolean'', or ``custom'', and by  (3) a \emph{value}.
 According to its type, each property value can be inserted in different ways.
 For example, a boolean property value is set through a checkbox, while a textual property is set through a text box.
 
