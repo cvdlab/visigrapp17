@@ -1,27 +1,33 @@
-\vspace{-2mm}
-\section{\uppercase{Design for Deconstruction and BIM}}
+%\vspace{-2mm}
+\section{\uppercase{Design to Deconstruct}}
 \label{sec:deconstruction}
-\vspace{-2mm}
+%\vspace{-2mm}
 
-\noindent
+\noindent 
 Waste management is an issue that in recent decades has become increasingly important, considering its economic, environmental and energy  impact.
 
-\vspace{-3mm}\subsection{Regulatory framework}\vspace{-3mm}
+%\vspace{-3mm}
+\subsection{Regulatory framework}
+%\vspace{-3mm}
 \label{sec:CER}
 
+\noindent
 The European Community has defined standards (EU 98/2008, 1357/2014) and goals (qualitative and quantitative) that Member States must comply with through the enactment of national regulations and the definition of economic instruments.
 
-Waste disposal, with direct and indirect costs involved, is enforced by Construction and Demolition activities. In European Waste Code/Classification (ECW) waste from the demolition of buildings [955/2014 EU] are identified as class 17 -- Construction And Demolition Wastes. 
+Waste disposal, with direct and indirect costs involved, is enforced by Construction and Demolition activities. In European Waste Code/Classification (ECW) waste from the demolition of buildings [955/2014 EU] are identified as class 17 -- Construction And Demolition Wastes.
 This classification allows a correct identification of both the waste generated from adoptable demolition modes, and the waste produced by actions of re-use, recycling or landfilling.
  
-The regulatory framework for waste management is far from clear, in particular in the Italian national context. Despite its direct and indirect cost, the landfill is often preferred rather than risking administrative or criminal penalties for failure to comply with unclear rules.  
+The regulatory framework for waste management is far from clear, in particular in the Italian national context. Despite its direct and indirect cost, the landfill is often preferred rather than risking administrative or criminal penalties for failure to comply with unclear rules.
 
-\vspace{-3mm}\subsection{Proposed approach}\vspace{-3mm}
+%\vspace{-3mm}
+\subsection{Proposed approach}
+%\vspace{-3mm}
 
+\noindent
 Given this cumbersome regulatory framework, our project is promoting the use of simplified IT tools to support the deconstruction. In particular, a quick simplified geometric modeling of the building allows for integration of a semantic description of component parts and their materials. Virtual/Augmented Reality  strongly helps overcome the administrative difficulties, provided the correct identification of the waste produced.
 This approach will increase the adoption of virtuous actions, namely the recovery and reuse.
 
-In particular, a  geometric modeling of the building allows you to identify:
+In particular, a  geometric modeling of the building allows to identify:
 (a) cost / income resulting from alternatives of recycling / re-using instead of disposal;
 (b) the composition and integration of information useful to the planning of construction activities;
 (c) achievement of the thresholds of reuse / recovery required by the regulations;
@@ -32,11 +38,11 @@ We started by considering the SMARTWaste system~\cite{smartWaste}. Their approac
 Our approach to deconstruction conversely provides both a geometric modeling of building subsystems and components and a semantic annotation with construction materials, like a sort of \emph{simplified} BIM. As a matter of fact, our national construction industry is strongly heterogeneous, so that  we need a pretty detailed modeling to obtain enough accurate information.
 One vantage point of this approach is an incremental iterative character, where each modeling stage may be followed by validation of partial costs.
 
- 
-A large corpus of specialized literature exists about BIM for existing buildings. A very interesting review paper, discussing hundreds of references is~\cite{Volk2014109}. Its abstract tell us that:  ``While BIM processes are established for new buildings, the majority of existing buildings is not maintained, refurbished or deconstructed with BIM yet. Promising benefits of efficient resource management motivate research to overcome uncertainties of building condition and deficient documentation prevalent in existing buildings.''
+A large corpus of specialized literature exists about BIM for existing buildings. A very interesting review paper, discussing hundreds of references is~\cite{Volk2014109}. Its abstract states that:  ``While BIM processes are established for new buildings, the majority of existing buildings is not maintained, refurbished or deconstructed with BIM yet. Promising benefits of efficient resource management motivate research to overcome uncertainties of building condition and deficient documentation prevalent in existing buildings.''
 
-Our project \emph{Metior} (from Latin: to  \emph{measure} or  \emph{estimate}), introduced in this paper, is exactly aiming to overcome such difficulties, via (a)~the design and implementation of a \emph{web service} providing a strongly simplified user-interface, designed for quantity surveyors (b)~storing a growing database of template plugins for more geometrically complex building parts; (c)~using an extensible geometry engine and server based on decades of research; (d)~offering flexible semantic additions via specialization of EFC classes associated to building subsystems and parts.
+The \emph{Metior} (from Latin: to  \emph{measure} or  \emph{estimate}) project, introduced in this paper, is exactly aiming to overcome such difficulties, via (a)~the design and implementation of a \emph{web service} providing a strongly simplified user-interface, designed for quantity surveyors (b)~storing a growing database of template plugins for more geometrically complex building parts; (c)~using an extensible geometry engine and server based on decades of research; (d)~offering flexible semantic additions via specialization of EFC classes associated to building subsystems and parts.
 
+Metior specifically targets quantity surveyors. In fact, although large sites to be deconstructed are operated by main contractors, where skills and specific tools might  be widely available and already used, the great mass of deconstruction activities, and hence the large amount of waste material produced, are a prerogative of quantity surveyors from small or medium companies - or even single professional. Such kind of entrepreneurs may find themselves unprepared and need to be supported with tools where the complexity, both bureaucratic and technical, have to be hidden although correctly managed.
 
 %Uno strumento di editing ---veloce--- rende percorribile la strada di adempiere agli obblighi di legge
 %
