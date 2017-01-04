@@ -92,7 +92,7 @@ In this paper we discuss the motivation, the technology, the design and the use-
 \label{sec:introduction}
 
 \noindent
-A tendency to minimize the humanization of new territories and to push for reusing already  built accommodation or accommodation which has fallen into disuse has become a pressing need in advanced societies. We have to integrate the ``zero energy'' model (each building has to produce the same amount of energy that it consumes) with the ``zero waste'' model , i.e. a new design paradigm where the waste materials from demolition become resources for reconstruction~\cite{altamura:12}. Building, contract, and design processes need to be renewed to take account of environmental concerns. 
+A tendency to minimize the humanization of new territories and to push for reusing already  built accommodation or accommodation which has fallen into disuse has become a pressing need in advanced societies. We have to integrate the ``zero energy'' model (each building has to produce the same amount of energy that it consumes) with the ``zero waste'' model, i.e. a new design paradigm where the waste materials from demolition become resources for reconstruction~\cite{altamura:12}. Building, contract, and design processes need to be renewed to take account of environmental concerns. 
 
 To reduce the impact of construction projects on the environment, the design needs to take the issue of building materials into consideration. Public administrations need suitable tools for the calculation and the control of reused or disposed materials. The new tools should handle the digital processing of materials throughout the project life cycle, supporting new project requirements such as: Design for Deconstruction, Design for Recycling and Design for Waste. 
 
@@ -100,7 +100,7 @@ In particular, a building life cycle, underpinned by a construction process whic
 
 In this work\footnote{\acks} we propose solutions that serve to close the circle of the building life-cycle, moving away from a traditional linear response with excessively high consumption energy rates (cradle to grave) and towards the reuse of materials in deconstruction/reconstruction (cradle to cradle), supported by computer aided selective demolition process.
 
-All restructuring cycles of buildings should envisage de-construction and re-construction steps, targeted towards the replacement of materials in order to achieve greater efficiency. The handling of these materials requires appropriate encoding both for the disposal (ECW -- European Coding of Waste) and for the planning and design of new buildings (BIM -- Building Information Modeling). For this purpose we need geo-referenced scenes of augmented reality based on fast, easily navigable and measurable 3D models. 
+All restructuring cycles of buildings should envisage de-construction and re-construction steps, targeted towards the replacement of materials in order to achieve greater efficiency. The handling of these materials requires appropriate encoding both for the disposal, according to EWC (European Waste Catalogue) codes, and for the planning and design of new buildings, following BIM (Building Information Modeling) methodology. For this purpose we need geo-referenced scenes of augmented reality based on fast, easily navigable and measurable 3D models. 
 
 We already have excellent knowledge about construction costs (from scratch) but little is known about replacement rates (complete selective demolition). A modern selective demolition process requires human intervention, with high insurance costs due to the danger involved for those working in these activities. This latter point demands an alternative to human effort in these process. We suggest that automated robots could replace human effort; drones could operate in a semantically familiar context and give real-time updates as the reality contextually changes. 
 
@@ -125,12 +125,12 @@ Waste management is an issue that in recent decades has become increasingly impo
 \label{sec:CER}
 
 \noindent
-The European Community has defined standards (EU 98/2008, 1357/2014) and goals (qualitative and quantitative) that Member States must comply with through the enactment of national regulations and the definition of economic instruments.
+The European Community has defined standards [EU 98/2008, 1357/2014] and goals (qualitative and quantitative) that Member States must comply with through the enactment of national regulations and the definition of economic instruments.
 
-Waste disposal, with direct and indirect costs involved, is enforced by Construction and Demolition activities. In European Waste Code/Classification (ECW) waste from the demolition of buildings [955/2014 EU] are identified as class 17 -- Construction And Demolition Wastes.
+Waste disposal, with direct and indirect costs involved, is enforced by Construction and Demolition activities. In EWC, waste from the demolition of buildings [955/2014 EU] are identified as class 17 -- Construction And Demolition Wastes.
 This classification allows a correct identification of both the waste generated from adoptable demolition modes, and the waste produced by actions of re-use, recycling or landfilling.
  
-The regulatory framework for waste management is far from clear, in particular in the Italian national context. Despite its direct and indirect cost, the landfill is often preferred rather than risking administrative or criminal penalties for failure to comply with unclear rules.
+The regulatory framework for waste management is far from clear, in particular in the Italian national context. Despite its direct and indirect costs, the landfill is often preferred rather than risking administrative or criminal penalties for failure to comply with unclear rules.
 
 \subsection{Proposed approach}
 
@@ -149,11 +149,11 @@ We started by considering the SMARTWaste system~\cite{smartWaste}. Their approac
 Our approach to deconstruction conversely provides both a geometric modeling of building subsystems and components and a semantic annotation with construction materials, like a sort of \emph{simplified} BIM. As a matter of fact, our national construction industry is strongly heterogeneous, so that  we need a pretty detailed modeling to obtain enough accurate information.
 One vantage point of this approach is an incremental iterative character, where each modeling stage may be followed by validation of partial costs.
 
-A complete report about using BIM as a building deconstruction approach is provided by~\cite{galic2014bim}. A study on the usage of BIM as a support for "Design for Deconstruction" (DfD) is carried on by~\cite{akinade2015waste}. In this setup, on the contrary to what holds for us, deconstruction has to be a major concern starting from the beginning of the building design.
+A complete report about using BIM as a building deconstruction approach is provided by~\cite{galic2014bim}. A study on the usage of BIM as a support for Design for Deconstruction is carried on by~\cite{akinade2015waste}. In this setup, on the contrary to what holds for us, deconstruction has to be a major concern starting from the beginning of the building design.
 
 A large corpus of specialized literature exists about BIM for existing buildings. A very interesting review paper, discussing hundreds of references is~\cite{Volk2014109}. Its abstract states that:  ``While BIM processes are established for new buildings, the majority of existing buildings is not maintained, refurbished or deconstructed with BIM yet. Promising benefits of efficient resource management motivate research to overcome uncertainties of building condition and deficient documentation prevalent in existing buildings.'' 
 
-The \emph{Metior} (from Latin: to  \emph{measure} or  \emph{estimate}) project, introduced in this paper, is exactly aiming to overcome such difficulties, via (a)~the design and implementation of a \emph{web service} providing a strongly simplified user-interface, designed for quantity surveyors (b)~storing a growing database of template plugins for more geometrically complex building parts; (c)~using an extensible geometry engine and server based on decades of research; (d)~offering flexible semantic additions via specialization of IFC (Industry Foundation Classes~\cite{ifc}) classes associated to building subsystems and parts.
+The \emph{Metior} (from Latin: to  \emph{measure} or  \emph{estimate}) project, introduced in this paper, is exactly aiming to overcome such difficulties, via (a)~the design and implementation of a \emph{web service} providing a strongly simplified user-interface, designed for quantity surveyors; (b)~storing a growing database of template plugins for more geometrically complex building parts; (c)~using an extensible geometry engine and server based on decades of research; (d)~offering flexible semantic additions via specialization of IFC (Industry Foundation Classes~\cite{ifc}) classes associated to building subsystems and parts.
 
 Metior specifically targets quantity surveyors. In fact, although large sites to be deconstructed are operated by main contractors, where skills and specific tools might be widely available and already used, most of deconstruction activities, and hence the largest amount of waste material produced, are managed by quantity surveyors from small or medium companies --- or even by single professionals. Such kind of firms may need to be supported with tools where the complexity, both bureaucratic and technical, have to be hidden although correctly managed.
 
@@ -177,7 +177,7 @@ The estimated age and the style of construction are used to determine the needed
 \paragraph{Building modeling} 
 
 \noindent
-The user describes the construction using some predefined classes of elements, either instancing some  predefined parametric plugins or through wire-frame input of 2D layouts. 
+The user describes the construction using some predefined classes of elements, either instantiating some  predefined parametric plugins or through wire-frame input of 2D layouts. 
 First is defined the building skeleton (backbone), i.e.~the set of beams and columns or load-bearing walls, providing the structural grid.
 On its horizontal sections, the user specifies the exterior and interior walls (vertical enclosure and partitions), on which the fixtures are positioned (horizontal communications).
 Ceilings and floors (horizontal partitions) are instead automatically generated from the topology (1-boundary) of the 2-skeleton of the floors (subsets of 2-cells).
@@ -187,20 +187,20 @@ Finally, various elements such as stairs, elevators (vertical communications), f
 
 \noindent
 At this stage (see Figure~\ref{fig:semantics}) the previously inserted elements are annotated semantically  by means of references to database of materials, including densities. The annotation may consists of one or more materials, including percentages.
-For disposal control imposed by regulations, the user should assign one / more ECW codes and degrees of dangerousness (see Section~\ref{sec:CER}).
+For disposal control imposed by regulations, the user should assign one / more EWC codes and degrees of dangerousness (see Section~\ref{sec:CER}).
 In this stage it is also assigned a pair of links that refer to the time schedule for disposal of  building components.
 
 \begin{figure}[!h]
   \centering
   \includegraphics[width=1\linewidth]{images/3d-sel.png}
-  \caption{Graphical interface for semantics annotation of a modeled object}
+  \caption{Graphical interface for semantics annotation}
   \label{fig:semantics}
 \end{figure}
 
 \paragraph{Augmented reality visualization} 
 
 \noindent
-After modeling and attribution of semantics to components, the quantity surveyer can validate the entire model by spatial merging into a 3D point cloud (see Figure~\ref{fig:augmented}) previously obtained by using flying drones for the exterior, or 3D laser scanners for the interior. In this way one can assess the adhesion of the modeled building structure to reality, possibly retracing to some previous step if the result is still not satisfactory.
+After modeling and attribution of semantics to components, the quantity surveyor can validate the entire model by spatial merging into a 3D point cloud (see Figure~\ref{fig:augmented}) previously obtained by using flying drones for the exterior, or 3D laser scanners for the interior. In this way one can assess the adhesion of the modeled building structure to reality, possibly retracing to some previous step if the result is still not satisfactory.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -213,14 +213,14 @@ After modeling and attribution of semantics to components, the quantity surveyer
 
 \noindent 
 Once the work is done and the model geometry is validated, the application provides a final report.
-In particular, the final report will allow the quantity surveyer and/or the other professionals involved in the deconstruction design team, to determine whether the decision taken is convenient both economically and/or environmentally.
+In particular, the final report will allow the quantity surveyor and/or the other professionals involved in the deconstruction design team, to determine whether the decision taken is convenient both economically and/or environmentally.
 
 The final report consists of four documents.
 (i)~\emph{An estimate of volumes and weights of materials}, computed by appropriate integration calculations, based on the geometry of components and annotations defined on them.
 (ii)~\emph{An estimate of demolition costs}, including disposal and recovery.
-Starting from volumes and densities of materials, and from ECW codes and hence the mode of disposal, it is estimated the cost of the contribution to landfills.
+Starting from volumes and densities of materials, and from EWC codes and hence the mode of disposal, it is estimated the cost of the contribution to landfills.
 (iii)~\emph{The transportation costs} to move the materials to the closest landfills, taking into account the geographical position of the building, and by calculating the most convenient road routes.
-(iv)~\emph{An estimate of the expected time} for the complete demolition of the building, located on a Gantt chart. A PERT program, automatically generated while annotating semantically the components of the building, is used for this purpose.
+(iv)~\emph{An estimate of the expected time} for the complete demolition of the building, located on a Gantt chart. Semantic annotations are also used to generate a schedule of the demolition activities by means of a PERT program.
 
 %\input{architecture.tex}
 \section{\uppercase{Design and Architecture}}
@@ -229,7 +229,7 @@ Starting from volumes and densities of materials, and from ECW codes and hence t
 % principles
 
 \noindent
-Workflow and requirements described in the previous section have been received in a prototypal application serving as proof of concept. With the aim of maximize accessibility for quantity surveyors, it is strongly web based and runs in all modern browsers. It is built using React by Facebook and an MVC (Model/View/Controller) design pattern with \emph{unidirectional data flow} \cite{redux}:  it ensures the best code maintainability and debuggability by centralizing access to the application state in a single controller.
+Workflow and requirements described in the previous section have been received in a prototypal application serving as proof of concept. With the aim of maximize accessibility for quantity surveyors, it is strongly web based and runs in all modern browsers. It is built using React by Facebook and the \emph{unidirectional data flow} design pattern~\cite{redux}:  it ensures the best code maintainability and debuggability by centralizing access to the application state in a single controller.
 
 \subsection{UI and user experience}
 
@@ -252,10 +252,10 @@ The web application presents itself as a simplified CAD software, where the user
 From the \emph{toolbar} the user can access functionalities related to: project life cycle ({\tt new}, {\tt save}, {\tt load}); project editing  ({\tt  show-catalog}); view/interaction mode switching ({\tt 2D}, {\tt  3D}); interaction mode changing ({\tt  selecting}, {\tt pan}, {\tt zoom}).
 
 
-The \emph{canvas} is the area in which the user can interact with actual model data. It supports two different views and interaction modes. In~\emph{2D-mode} the model is displayed as a 2D projection from the top, and the interaction consists of element insertion, selection and editing (according to specific plugin interaction prototype, see~\ref{ssec:taxonomy}). In~\emph{3D-mode} a 3D model can be inspected and navigated, respectively via trackball or first-person interaction style, while object picking allows for element selection.
+The \emph{canvas} is the area in which the user can interact with actual model data. It supports two different views and interaction modes. In~\emph{2D-mode} the model is displayed as a 2D projection from the top, and the interaction consists of element insertion, selection and editing (according to specific plugin interaction prototype, see Section~\ref{ssec:taxonomy}). In~\emph{3D-mode} a 3D model can be inspected and navigated, respectively via trackball or first-person interaction style, while object picking allows for element selection.
 
 The \emph{sidebar} shows the properties of the currently selected element.
-In the properties panel it is possible to view the description of the element, to add/remove metadata, and to modify any property. The latter is the interaction mode that allows the user to associate semantics annotations to every part of the model.
+In the properties panel it is possible to view the description of the element, to add/remove metadata, and to modify any property. The latter is the interaction mode that allows the user to associate semantic annotations to every part of the model.
 
 \subsection{Plugin-architecture}
 
@@ -302,8 +302,7 @@ and adjusting their dimensions modifying the bounding-box by drag\&drop.
 \label{tab:plugins-example}
 \end{table}
 
-The \emph{placement type} determines if the element can be inserted into the canvas in a specific point occupied or not by other elements. In other words 
-the {placement type} determines the relationship between a new instance of a plugin and instances of other plugins previously added to the model. The relationship can be of two kind: \emph{inside} or \emph{over}.
+The \emph{placement type} determines if the element can be inserted into the canvas in a specific point occupied or not by other elements. In other words, the {placement type} determines the relationship between a new instance of a plugin and instances of other plugins previously added to the model. The relationship can be of two kind: \emph{inside} or \emph{over}.
 Plugins belonging to the \emph{inside} category can be added only inside other element (that can be \emph{linear}, \emph{area} or \emph{volume}); e.g., a ``window'' is a ``volume inside vertical area'' element,
 while an ``hydraulic line'' is a ``linear inside horizontal area'' element.
 Plugins of the \emph{over} category can be added only over other elements (of any type);
@@ -329,7 +328,7 @@ Each property is defined by (1) a \emph{name}, (2) a \emph{type}, such as ``numb
 According to its type, each property value can be inserted in different ways.
 For example, a boolean property value is set through a checkbox, while a textual property is set through a text box.
 
-The system is designed to accept custom kinds of property. A custom property is required to define the component of the UI that permit the user to insert its value.
+The system is designed to accept custom kinds of property. A custom property is required to define the component of the UI that permits the user to insert its value.
 For example, a ``color'' property can be introduced by defining a UI component composed by three text boxes (one for each RGB components), while a ``length'' property can be introduced by defining a UI component including a text box for the value and a drop-down menu for the unit of measure.
 
 The specific properties of an element can be edited in the relative panel in the sidebar, once the element is selected in the canvas.
@@ -342,7 +341,7 @@ It is pivotal to provide the system users with a rich catalog of plugins, to cov
 \subsection{Server-side models generation}
 
 \noindent
-Both the 3D and 2D model generations have been designed as \emph{asynchronous}. The actual result of the invocation of a generating function is not the generated model itself, but rather a \emph{promise} of the expected result. Such a design choice is important since the computation for model generation may require some while. In the meantime the user must be able to interact with the interface, which in turn must remain responsive. Relying on this architecture, generation of the models can be easily delegated to a server (as shown in Figure~\ref{fig:c-s-arch}), thus relieving the client from the burden of onerous computations. The server exposes a REST-like HTTP-based JSON API to the client. The plugins span from the client to the server, since the 2D and 3D generating functions ( \emph{2Dgf} and \emph{3Dgf}) defined by the plugin are actually executed on the server, as shown in Figure~\ref{fig:c-s-arch} .
+Both the 3D and 2D model generations have been designed as \emph{asynchronous}. The actual result of the invocation of a generating function is not the generated model itself, but rather a \emph{promise} of the expected result. Such a design choice is important since the computation for model generation may require some while. In the meantime the user must be able to interact with the interface, which in turn must remain responsive. Relying on this architecture, generation of the models can be easily delegated to a server (as shown in Figure~\ref{fig:c-s-arch}), thus relieving the client from the burden of onerous computations. The server exposes a REST-like HTTP-based JSON API to the client. The plugins span from the client to the server, since the 2D and 3D generating functions ( \emph{2Dgf} and \emph{3Dgf}) defined by the plugin are actually executed on the server, as shown in Figure~\ref{fig:c-s-arch}.
 
 \subsection{Plugin examples}
 
